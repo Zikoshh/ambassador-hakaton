@@ -1,4 +1,4 @@
-import StyledApp from './Styles';
+import StyledApp from './styles/StyledApp';
 import Header from '../Header';
 
 const App = () => {
