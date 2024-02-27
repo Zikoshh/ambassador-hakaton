@@ -1,7 +1,12 @@
 import StyledApp from './Styles';
+import Header from '../Header';
 
 const App = () => {
-  return <StyledApp></StyledApp>;
+  return (
+    <StyledApp>
+      <Header />
+    </StyledApp>
+  );
 };
 
 export default App;
