@@ -1,4 +1,4 @@
-import Main from '../Main/Main';
+import MainLayout from '../layout/MainLayout/MainLayout';
 import Email_signup from '../Registration/Email/Email_signup.jsx';
 import Password_signup from '../Registration/Password/Password_signup';
 import Email_confirmation from '../Registration/Email-confirmation/Email_confirmation.jsx';
@@ -10,8 +10,8 @@ import './App.css';
 function App() {
   const location = useLocation();
   return (
-    <div className="page">
-      {['/'].includes(location.pathname) && <Main />}
+    <div className="page-content">
+      {['/'].includes(location.pathname) && <MainLayout />}
       <Routes>
         <Route path="/signin-email" element={<Login />} />
         <Route path="/signup-email" element={<Email_signup />} />

@@ -37,6 +37,10 @@
   text-align: center;
 }
 
+.email__message-span {
+  color: rgb(98, 93, 245);
+}
+
 .email__text {
   color: rgb(98, 93, 245);
   font-size: 14px;

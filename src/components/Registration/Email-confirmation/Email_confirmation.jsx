@@ -13,8 +13,8 @@ const Email_confirmation = () => {
           <h1 className="email__title email__title-signup">Подтверждение Email</h1>
         </div>
         <article className="email__message">
-          На почту mymail@yandex.ru мы отправили письмо с подтверждением. Для завершения регистрации
-          пройдите по ссылке в письме
+          На почту <span className="email__message-span">mymail@yandex.ru</span> мы отправили письмо
+          с подтверждением. Для завершения регистрации пройдите по ссылке в письме
         </article>
         <Link to="/signup-help" className="email__text">
           {' '}
