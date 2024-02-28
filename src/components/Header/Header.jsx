@@ -1,7 +1,11 @@
-import StyledHeader from './styles/StyledHeader';
 
 const Header = () => {
-  return <StyledHeader></StyledHeader>;
+  // TODO: сделать заливку общего фона
+  return (
+    <>
+      <p>Header</p>
+    </>
+  );
 };
 
 export default Header;
