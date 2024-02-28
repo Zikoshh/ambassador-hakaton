@@ -1,11 +1,8 @@
-import StyledApp from './styles/StyledApp';
-import Header from '../Header';
+import Routes from "../routes";
 
 const App = () => {
   return (
-    <StyledApp>
-      <Header />
-    </StyledApp>
+    <Routes />
   );
 };
 
