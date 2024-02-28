@@ -1,0 +1,29 @@
+.email__container-help {
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0px 4px 36px 0px rgba(43, 41, 116, 0.12);
+  background: rgb(255, 255, 255);
+}
+
+.email__list {
+  color: rgb(33, 33, 33);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 130%;
+  margin: 0;
+}
+
+.email__title.email__title-help {
+  color: rgb(2, 2, 2);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.email__close-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
