@@ -4,7 +4,6 @@ import Stack from '@mui/material/Stack';
 import MenuButton from '../../ui/MenuButton/MenuButton';
 
 export default function Menu({ open }) {
-    console.log('open menu', open);
     return (
         <Stack
             sx={{

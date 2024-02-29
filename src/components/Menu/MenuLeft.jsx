@@ -9,7 +9,7 @@ import { Box } from '@mui/material';
 const MenuLeft = () => {
     // состояние меню
     const [open, setOpen] = useState(true);
-    console.log('open =', open);
+
     const handleMenuToggle = () => {
         console.log('clik handleMenuToggle');
         setOpen(!open);
@@ -36,11 +36,11 @@ const MenuLeft = () => {
                         width: open ? '224px' : '76px',
                         height: '100%',
                         margin: '12px auto 0px',
-                        gap: '0',
+                        gap: '0'
                     }}
                 >
                     <Menu open={open} />
-                    <MenuButton sx={{marginBottom: '20px'}}startIcon={<Gear />} open={open}>
+                    <MenuButton sx={{ marginBottom: '20px' }} startIcon={<Gear />} open={open}>
                         {open ? 'Настройки' : ''}
                     </MenuButton>
                 </Box>
