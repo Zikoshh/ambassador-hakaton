@@ -73,6 +73,7 @@
 }
 
 .email__input {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -110,8 +111,24 @@
   line-height: 22px;
 }
 
+.email__span {
+  color: rgb(251, 57, 57);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+}
+
+.email__input-error {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  right: 13px;
+  bottom: 60%;
+}
+
 .email__button {
-  height: 36px;
+  height: 26px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -121,8 +138,8 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
-  letter-spacing: 0px;
   text-align: center;
+  text-decoration: none;
   background: rgb(98, 93, 245);
   border-radius: 999px;
   border: none;
@@ -138,6 +155,11 @@
 }
 
 .email__question {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
   color: rgb(171, 171, 171);
   font-size: 14px;
   font-weight: 400;
@@ -159,4 +181,8 @@
 }
 .email__link:active {
   color: rgb(20, 13, 218);
+}
+
+.error {
+  border: 1px solid red;
 }

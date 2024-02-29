@@ -133,7 +133,6 @@ const Password_signup = () => {
             )}
           </label>
           <Link to="/signup-confirmation" className="password__button">
-            {' '}
             Зарегистрироваться
           </Link>
         </form>

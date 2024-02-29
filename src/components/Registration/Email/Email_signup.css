@@ -17,6 +17,7 @@
 }
 
 .email__button.email__button-signup {
+  height: 26px;
   margin-top: 28px;
   margin-bottom: 0px;
   text-decoration: none;
