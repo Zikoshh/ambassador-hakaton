@@ -1,24 +1,40 @@
-import {
-  Persons,
-  Picture,
-  ListCheck,
-  TShirt,
-  ChartPie,
-} from "@gravity-ui/icons";
-import Stack from "@mui/material/Stack";
-import MenuButton from "../../ui/MenuButton/MenuButton";
-export default function Menu() {
-  return (
-    <Stack
-      sx={{ width: "224px", display: "flex", margin: "20px auto", gap: "4px" }}
-      useFlexGap
-      spacing={2}
-    >
-      <MenuButton startIcon={<Persons />}>Профили</MenuButton>
-      <MenuButton startIcon={<Picture />}>Контент</MenuButton>
-      <MenuButton startIcon={<ListCheck />}>Задачи</MenuButton>
-      <MenuButton startIcon={<TShirt />}>Мерч</MenuButton>
-      <MenuButton startIcon={<ChartPie />}>Аналитика</MenuButton>
-    </Stack>
-  );
+import { Persons, Picture, ListCheck, TShirt, ChartPie } from '@gravity-ui/icons';
+
+import Stack from '@mui/material/Stack';
+import MenuButton from '../../ui/MenuButton/MenuButton';
+
+export default function Menu({ open }) {
+    console.log('open menu', open);
+    return (
+        <Stack
+            sx={{
+                backgroundColor: '#FFFFFF',
+                borderRadius: '12px',
+                width: open ? '224px' : '76px',
+                display: 'flex',
+                margin: '20px auto',
+                gap: '4px'
+            }}
+            useFlexGap
+            spacing={2}
+        >
+            <MenuButton startIcon={<Persons />} open={open}>
+                {open ? 'Профили' : ''}
+            </MenuButton>
+            <MenuButton startIcon={<Picture />} open={open}>
+                {open ? 'Контент' : ''}
+            </MenuButton>
+            <MenuButton startIcon={<ListCheck />} open={open}>
+                {open ? 'Задачи' : ''}
+            </MenuButton>
+            <MenuButton startIcon={<TShirt />} open={open}>
+                {open ? 'Мерч' : ''}
+            </MenuButton>
+            <MenuButton startIcon={<ChartPie />} open={open}>
+                {open ? 'Аналитика' : ''}
+            </MenuButton>
+        </Stack>
+    );
 }
+
+//Профили
