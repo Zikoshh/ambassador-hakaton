@@ -11,11 +11,31 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <p>Главная страница1</p>
+      element: <p>Главная страница</p>
     },
     {
-      path: 'main',
-      element: <p>Страница Main</p>
+      path: 'profiles',
+      element: <p>Страница profiles</p>
+    },
+    {
+      path: 'content',
+      element: <p>Страница content</p>
+    },
+    {
+      path: 'tasks',
+      element: <p>Страница tasks</p>
+    },
+    {
+      path: 'merch',
+      element: <p>Страница merch</p>
+    },
+    {
+      path: 'analytics',
+      element: <p>Страница analytics</p>
+    },
+    {
+      path: 'settings',
+      element: <p>Страница settings</p>
     },
   ]
 };
