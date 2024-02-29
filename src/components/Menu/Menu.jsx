@@ -1,9 +1,11 @@
+import { NavLink } from 'react-router-dom';
 import { Persons, Picture, ListCheck, TShirt, ChartPie } from '@gravity-ui/icons';
 
 import Stack from '@mui/material/Stack';
 import MenuButton from '../../ui/MenuButton/MenuButton';
 
 export default function Menu({ open }) {
+    // TODO: сделать активной кнопку при роуте страницы
     return (
         <Stack
             sx={{
@@ -17,19 +19,19 @@ export default function Menu({ open }) {
             useFlexGap
             spacing={2}
         >
-            <MenuButton startIcon={<Persons />} open={open}>
+            <MenuButton LinkComponent={NavLink} to="/profiles" sx={{ marginTop: '20px' }} startIcon={<Persons />} open={open}>
                 {open ? 'Профили' : ''}
             </MenuButton>
-            <MenuButton startIcon={<Picture />} open={open}>
+            <MenuButton LinkComponent={NavLink} to="/content" startIcon={<Picture />} open={open}>
                 {open ? 'Контент' : ''}
             </MenuButton>
-            <MenuButton startIcon={<ListCheck />} open={open}>
+            <MenuButton LinkComponent={NavLink} to="/tasks" startIcon={<ListCheck />} open={open}>
                 {open ? 'Задачи' : ''}
             </MenuButton>
-            <MenuButton startIcon={<TShirt />} open={open}>
+            <MenuButton LinkComponent={NavLink} to="/merch"startIcon={<TShirt />} open={open}>
                 {open ? 'Мерч' : ''}
             </MenuButton>
-            <MenuButton startIcon={<ChartPie />} open={open}>
+            <MenuButton LinkComponent={NavLink} to="/analytics"sx={{ marginBottom: '20px' }} startIcon={<ChartPie />} open={open}>
                 {open ? 'Аналитика' : ''}
             </MenuButton>
         </Stack>

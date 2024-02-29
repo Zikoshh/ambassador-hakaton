@@ -8,7 +8,6 @@ const MenuButton = styled(Button)(({ open }) => ({
     justifyContent: `${open ? 'left' : 'center'}`,
     margin: '0 auto',
     paddingLeft: `${open ? '20px' : '0'}`,
-    //padding: 0,
     fontSize: '14px',
     fontWeight: '500',
     lineHeight: '22px',

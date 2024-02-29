@@ -7,6 +7,7 @@ const MenuButtonArrow = styled(Button)(({ open }) => ({
     justifyContent: 'centre',
     margin: '0 auto',
     boxShadow: 'none',
+    color: '#212121',
     borderRadius: '0',
     backgroundColor: '#FFFFFF',
     '&:hover': {
