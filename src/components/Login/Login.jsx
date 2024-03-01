@@ -1,9 +1,7 @@
-//import { Link } from 'react-router-dom';
 
-//import { Grid, Stack, Typography } from '@mui/material';
-
+import Email_signin from './Email/Email_signin';
 const Login = () => (
-  <p>Форма авторизации</p>
+  <Email_signin />
 );
 
 export default Login;
