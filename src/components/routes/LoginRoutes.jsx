@@ -11,6 +11,7 @@ import Password_signin from '../Login/Password/Password_signin';
 import Password_restore from '../Login/Password-restore/Password_restore';
 import Login_access from '../Login/Login-access/Login_access.jsx';
 
+// TODO: "../Login/Login" заменить на свой компонент формы авторизации и регистрации
 // const AuthLogin = Loadable(lazy(() => import('../Login/Email/Email_signin.jsx')));
 // const AuthRegister = Loadable(lazy(() => import('../Registration/Email/Email_signup.jsx')));
 
@@ -51,6 +52,5 @@ const LoginRoutes = {
             element: <Login_access />
         }
     ]
-};
 
 export default LoginRoutes;
