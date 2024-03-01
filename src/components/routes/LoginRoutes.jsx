@@ -52,5 +52,5 @@ const LoginRoutes = {
             element: <Login_access />
         }
     ]
-
+}
 export default LoginRoutes;
