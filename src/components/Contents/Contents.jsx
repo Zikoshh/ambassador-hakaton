@@ -1,32 +1,24 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { alpha } from '@mui/material/styles';
 import {
     Box,
     Table,
     TableBody,
     TableCell,
     TableContainer,
-    TableHead,
     TablePagination,
     TableRow,
-    TableSortLabel,
-    Toolbar,
-    Typography,
     Paper,
     Checkbox,
-    IconButton,
-    Tooltip,
     FormControlLabel,
     Switch,
-    Button
+    Button,
 } from '@mui/material/';
 
-import { Delete as DeleteIcon, FilterList as FilterListIcon } from '@mui/icons-material/';
-import { visuallyHidden } from '@mui/utils';
 
 import data_contents from '../../utils/temp_const';
-import { HeadCellsContents } from '../../utils/constants';
+import { CollumnContents } from '../../utils/constants';
+import EnhancedTableToolbar from '../../ui/TableContents/EnhancedTableToolbar';
+import EnhancedTableHead from '../../ui/TableContents/EnhancedTableHead';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -58,96 +50,7 @@ function stableSort(array, comparator) {
     return stabilizedThis.map((el) => el[0]);
 }
 
-function EnhancedTableHead(props) {
-    const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } = props;
-    const createSortHandler = (property) => (event) => {
-        onRequestSort(event, property);
-    };
 
-    return (
-        <TableHead>
-            <TableRow>
-                <TableCell padding="checkbox">
-                    <Checkbox
-                        color="primary"
-                        indeterminate={numSelected > 0 && numSelected < rowCount}
-                        checked={rowCount > 0 && numSelected === rowCount}
-                        onChange={onSelectAllClick}
-                        inputProps={{
-                            'aria-label': 'select all desserts'
-                        }}
-                        sx={{ width: '46px' }}
-                    />
-                </TableCell>
-                {HeadCellsContents.map((headCell) => (
-                    <TableCell key={headCell.id} align="left" padding="none" sortDirection={orderBy === headCell.id ? order : false}>
-                        <TableSortLabel
-                            active={orderBy === headCell.id}
-                            direction={orderBy === headCell.id ? order : 'asc'}
-                            onClick={createSortHandler(headCell.id)}
-                        >
-                            {headCell.label}
-                            {orderBy === headCell.id ? (
-                                <Box component="span" sx={visuallyHidden}>
-                                    {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                                </Box>
-                            ) : null}
-                        </TableSortLabel>
-                    </TableCell>
-                ))}
-            </TableRow>
-        </TableHead>
-    );
-}
-
-EnhancedTableHead.propTypes = {
-    numSelected: PropTypes.number.isRequired,
-    onRequestSort: PropTypes.func.isRequired,
-    onSelectAllClick: PropTypes.func.isRequired,
-    order: PropTypes.oneOf(['asc', 'desc']).isRequired,
-    orderBy: PropTypes.string.isRequired,
-    rowCount: PropTypes.number.isRequired
-};
-
-function EnhancedTableToolbar(props) {
-    const { numSelected } = props;
-
-    return (
-        <Toolbar
-            sx={{
-                pl: { sm: 2 },
-                pr: { xs: 1, sm: 1 },
-                ...(numSelected > 0 && {
-                    bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.activatedOpacity)
-                })
-            }}
-        >
-            {numSelected > 0 ? (
-                <Typography sx={{ flex: '1 1 100%' }} color="inherit" variant="subtitle1" component="div">
-                    {numSelected} выбрано
-                </Typography>
-            ) : (
-                <Typography sx={{ flex: '1 1 100%' }} variant="h6" id="tableTitle" component="div">
-                    Контент
-                </Typography>
-            )}
-
-            {numSelected > 0 ? (
-                <Tooltip title="Delete">
-                    <IconButton>
-                        <DeleteIcon />
-                    </IconButton>
-                </Tooltip>
-            ) : (
-                <Tooltip title="Filter list">
-                    <IconButton>
-                        <FilterListIcon />
-                    </IconButton>
-                </Tooltip>
-            )}
-        </Toolbar>
-    );
-}
 /*
 EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
@@ -229,6 +132,7 @@ export default function ContentsTable() {
                             onSelectAllClick={handleSelectAllClick}
                             onRequestSort={handleRequestSort}
                             rowCount={data_contents.length}
+                            CollumnContents={CollumnContents}
                         />
                         <TableBody>
                             {visibleRows.map((row, index) => {
@@ -260,18 +164,24 @@ export default function ContentsTable() {
                                         <TableCell>{row.fio}</TableCell>
                                         <TableCell>{row.telegram}</TableCell>
                                         <TableCell>{row.status_profile}</TableCell>
-                                        <TableCell><Switch checked={row.gaid}/></TableCell>
-                                        <TableCell><Switch checked={row.tasks}/></TableCell>
+                                        <TableCell>
+                                            <Switch checked={row.gaid} />
+                                        </TableCell>
+                                        <TableCell>
+                                            <Switch checked={row.tasks} />
+                                        </TableCell>
                                         <TableCell>{row.platform}</TableCell>
                                         <TableCell>{row.content}</TableCell>
                                         <TableCell>{row.file}</TableCell>
-                                        <TableCell><Button>Отправить мерч +</Button></TableCell>
+                                        <TableCell>
+                                            <Button>Отправить мерч +</Button>
+                                        </TableCell>
                                         <TableCell>{row.number_form}</TableCell>
                                         <TableCell>{row.number_task}</TableCell>
                                     </TableRow>
                                 );
                             })}
-                            
+
                             {emptyRows > 0 && (
                                 <TableRow
                                     style={{

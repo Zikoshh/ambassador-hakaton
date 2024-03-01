@@ -1,5 +1,5 @@
 // Для таблицы CONTENTS
-export const HeadCellsContents = [
+export const CollumnContents = [
     {
       id: 'date',
       label: 'Дата',

@@ -11,7 +11,7 @@ const MainLayout = () => {
             </Box>
             <Box sx={{ display: 'flex', width: '1440px', height: '100%', margin: '0' }}>
                 <MenuLeft />
-                <Box sx={{ width: '1192px', objectFit: 'cover', border: '2px solid grey' }}>
+                <Box sx={{ width: '1192px', objectFit: 'cover', border: '1px solid red' }}>
                     <Outlet />
                 </Box>
             </Box>
