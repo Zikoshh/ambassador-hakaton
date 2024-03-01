@@ -1,13 +1,13 @@
-import { Outlet } from "react-router-dom";
-import "./AuthLayout.css";
+import { Outlet } from 'react-router-dom';
+import './AuthLayout.css';
 
 const AuthLayout = () => {
-  return (
-    <main className="authlayout">
-      <p>AuthLayot</p>
-      <Outlet />
-    </main>
-  )
+    return (
+        <main className="authlayout">
+            <p className="authlayout__title">AuthLayot</p>
+            <Outlet />
+        </main>
+    );
 };
 
 export default AuthLayout;
