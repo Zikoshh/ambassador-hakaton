@@ -1,9 +1,12 @@
 import "./ProfilePopup.css";
 import profileImage from "../../assets/logo.svg";
 
-export default function ProfilePopup() {
+export default function ProfilePopup(isOpen, isClose) {
+  const profileButtonClassName = ( 
+    `profile-popup ${isOpen && 'profile-popup-open'}` 
+  );
   return (
-    <div className="profile-popup">
+    <div className={profileButtonClassName}>
       <div className="profile-popup__container">
         <img
           src={profileImage}

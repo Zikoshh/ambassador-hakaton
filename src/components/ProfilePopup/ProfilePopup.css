@@ -1,6 +1,9 @@
+.profile-popup-open{
+  display: flex;
+}
 .profile-popup {
   border: 1px solid red;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   padding: 40px;
