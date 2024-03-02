@@ -1,0 +1,125 @@
+.cardForm {
+    font-family: 'Inter';
+    display: flex;
+    flex-direction: column;
+    width: 336px;
+    margin-top: 13px;
+}
+
+.cardForm__label {
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+}
+
+.cardForm__input {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 7px 12px;
+    margin-bottom: 4px;
+    width: 336px;
+    height: 36px;
+    box-sizing: border-box;
+    border: 1px solid rgba(99, 98, 98, 0.3);
+    outline: none;
+    border-radius: 10px;
+    background: transparent;
+}
+.cardForm__input::placeholder {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.cardForm__box {
+    position: relative;
+    background: transparent;
+    margin-bottom: 16px;
+}
+
+.cardForm__chevronIcon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(99, 98, 98, 0.3);
+}
+
+select {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    appearance: none;
+    border: 1px solid rgba(213, 213, 213, 1);
+    color: rgba(99, 98, 98, 0.3);
+    cursor: pointer;
+}
+
+option {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(99, 98, 98, 0.3);
+}
+
+.checkbox-name {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgb(33, 33, 33);
+    margin-left: 8px;
+}
+
+.cardForm__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    margin: 24px auto 0px;
+}
+
+.cardForm__button-confirm {
+    width: 160px;
+    height: 36px;
+    background: rgba(98, 93, 245, 1);
+    border-radius: 999px;
+    border: none;
+    color: rgb(252, 252, 252);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: center;
+    cursor: pointer;
+}
+.cardForm__button-cancel {
+    width: 160px;
+    height: 36px;
+    background: rgb(255, 255, 255);
+    border-radius: 999px;
+    border: 1px solid rgb(195, 195, 201);
+    color: rgb(33, 33, 33);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: center;
+    cursor: pointer;
+}
