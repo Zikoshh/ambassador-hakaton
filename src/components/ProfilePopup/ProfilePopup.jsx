@@ -1,25 +1,23 @@
-import "./ProfilePopup.css";
-import profileImage from "../../assets/logo.svg";
+import './ProfilePopup.css';
+import profileImage from '../../assets/logo.svg';
+import ProfileOutPopup from '../ProfileOutPopup/ProfileOutPopup';
 
-export default function ProfilePopup(isOpen, isClose) {
-  const profileButtonClassName = ( 
-    `profile-popup ${isOpen && 'profile-popup-open'}` 
-  );
-  return (
-    <div className={profileButtonClassName}>
-      <div className="profile-popup__container">
-        <img
-          src={profileImage}
-          className="profile-popup__image"
-          alt="Button close"
-        />
-        <p className="profile-popup__account">Анна Белова</p>
-        <p className="profile-popup__email">email@email.com</p>
-      </div>
-      <div className="profile-popup__buttons">
-        <button className="profile-popup__button">Личный кабинет</button>
-        <button className="profile-popup__button">Выход</button>
-      </div>
-    </div>
-  );
+export default function ProfilePopup({ isOpen }) {
+    const profileButtonClassName = `profile-popup ${isOpen && 'profile-popup-open'}`;
+    return (
+        <>
+            <div className={profileButtonClassName}>
+                <div className="profile-popup__container">
+                    <img src={profileImage} className="profile-popup__image" alt="Button close" />
+                    <p className="profile-popup__account">Анна Белова</p>
+                    <p className="profile-popup__email">email@email.com</p>
+                </div>
+                <div className="profile-popup__buttons">
+                    <button className="profile-popup__button">Личный кабинет</button>
+                    <button className="profile-popup__button">Выход</button>
+                </div>
+            </div>
+            <ProfileOutPopup />
+        </>
+    );
 }

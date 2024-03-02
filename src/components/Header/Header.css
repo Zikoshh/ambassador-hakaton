@@ -60,6 +60,10 @@
   border-radius: 10px;
 }
 
+.header__button_left:hover, .header__button_right:hover{
+  cursor: pointer;
+}
+
 .header__button_right {
   display: flex;
   flex-direction: row;

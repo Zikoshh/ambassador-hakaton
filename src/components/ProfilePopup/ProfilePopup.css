@@ -1,8 +1,4 @@
-.profile-popup-open{
-  display: flex;
-}
 .profile-popup {
-  border: 1px solid red;
   display: none;
   flex-direction: column;
   align-items: center;
@@ -13,18 +9,17 @@
   position: absolute;
   top: 48px;
   right: 20px;
-
-  /* Text/Base Light */
   background: #FCFCFC;
-  /* card shadow */
   box-shadow: 0px 4px 36px rgba(43, 41, 116, 0.12);
   border-radius: 20px;
-
-  /* Inside auto layout */
   flex: none;
   order: 4;
   flex-grow: 0;
   z-index: 4;
+}
+
+.profile-popup-open{
+  display: flex;
 }
 
 .profile-popup__container {
@@ -37,7 +32,6 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: solid 1px red;
 }
 
 .profile-popup__account {
@@ -51,7 +45,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
-  /* identical to box height, or 138% */
   color: #000000;
 }
 
@@ -65,9 +58,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
-  /* identical to box height, or 138% */
   text-align: center;
-  /* Text/Base Gray Hard */
   color: #ABABAB;
 }
 
@@ -78,7 +69,6 @@
 }
 
 .profile-popup__button {
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -94,11 +84,13 @@
   border: none;
 }
 
+.profile-popup__button:hover{
+  cursor: pointer;
+}
+
 .profile-popup__button:last-child {
-  /* Button */
   margin-top: 16px;
   box-sizing: border-box;
-  /* Auto layout */
   display: flex;
   flex-direction: row;
   justify-content: center;
