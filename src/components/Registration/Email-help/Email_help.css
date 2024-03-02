@@ -1,0 +1,44 @@
+.email__help {
+  position: relative;
+}
+
+.email__help-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 33, 33, 0.3);
+  z-index: -1;
+}
+
+.email__container-help {
+  position: relative;
+  width: 398px;
+  gap: 28px;
+  border-radius: 20px;
+  background: rgb(255, 255, 255);
+  outline: 20px solid rgba(110, 110, 114, 0.12);
+}
+
+.email__list {
+  width: 302px;
+  color: rgb(33, 33, 33);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 130%;
+  margin: 0px;
+}
+
+.email__title.email__title-help {
+  color: rgb(2, 2, 2);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.email__close-button {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
