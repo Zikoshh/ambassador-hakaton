@@ -262,16 +262,14 @@ export default function ContentsTable() {
                                         </TableCell>
                                         <TableCell scope="row">
                                             <Box
-                                                id={`input_content${row.id}`}
+                                                id={`input_content_cell${row.id}`}
                                                 component="form"
                                                 noValidate
-                                                onSubmit={(evt) => { 
-                                                    console.log('onSubmit')
-                                                    evt.preventDefault()
-                                                }
-                                            }
+                                                onSubmit={(evt) => {
+                                                    console.log('onSubmit');
+                                                    evt.preventDefault();
+                                                }}
                                                 onChange={() => console.log('onChange')}
-                                                onFocus={() => console.log('focus')}
                                                 sx={{
                                                     width: 150,
                                                     height: 28,
@@ -280,43 +278,86 @@ export default function ContentsTable() {
                                                     border: '1px solid #D5D5D5',
                                                     borderRadius: '8px',
                                                     '&:hover': {
-                                                        borderColor: '#A5A5AC',
-                                                    },
-                                                    '&:disabled': {
-                                                        borderColor: 'red',
-                                                    },
+                                                        borderColor: '#A5A5AC'
+                                                    }
                                                 }}
                                             >
                                                 <IconButton
                                                     onClick={() => {
-                                                        const input = document.querySelector(`#input_content${row.id}`);
-                                                        console.log('родительский компонент', input);
+                                                        const input = document.querySelector(`#input_content_input${row.id}`);
                                                         input.disabled = !input.disabled;
+                                                        const cell = document.querySelector(`#input_content_cell${row.id}`);
+                                                        input.disabled
+                                                            ? cell.setAttribute('style', 'background-color: #D5D5D5')
+                                                            : cell.setAttribute('style', 'background-color: #fff');
                                                     }}
                                                 >
                                                     <Pencil />
                                                 </IconButton>
                                                 <InputBase
+                                                    id={`input_content_input${row.id}`}
                                                     placeholder="ссылка"
-                                                    
                                                     defaultValue={row.content}
-                                                    color='red'
                                                     sx={{
                                                         fontFamily: 'Inter',
                                                         fontSize: '12px',
                                                         color: '#212121',
                                                         fontWeight: '400',
-                                                        lineHeight: '22px',
-                                                        '&:disabled': {
-                                                            backgroundColor: '#EDEDED'
-                                                        }
+                                                        lineHeight: '22px'
                                                     }}
-                                                    
-                                                    onBlur={() => console.log('onBlur')}
+                                                    onBlur={() => console.log('onBlur')}    //Запускаем сабмит
                                                 ></InputBase>
                                             </Box>
                                         </TableCell>
-                                        <TableCell scope="row">{row.file}</TableCell>
+                                        <TableCell scope="row">
+                                            <Box
+                                                id={`input_file_cell${row.id}`}
+                                                component="form"
+                                                noValidate
+                                                onSubmit={(evt) => {
+                                                    console.log('onSubmit');
+                                                    evt.preventDefault();
+                                                }}
+                                                onChange={() => console.log('onChange')}
+                                                sx={{
+                                                    width: 150,
+                                                    height: 28,
+                                                    display: 'flex',
+                                                    boxSizing: 'border-box',
+                                                    border: '1px solid #D5D5D5',
+                                                    borderRadius: '8px',
+                                                    '&:hover': {
+                                                        borderColor: '#A5A5AC'
+                                                    }
+                                                }}
+                                            >
+                                                <IconButton
+                                                    onClick={() => {
+                                                        const input = document.querySelector(`#input_file_input${row.id}`);
+                                                        input.disabled = !input.disabled;
+                                                        const cell = document.querySelector(`#input_file_cell${row.id}`);
+                                                        input.disabled
+                                                            ? cell.setAttribute('style', 'background-color: #D5D5D5')
+                                                            : cell.setAttribute('style', 'background-color: #fff');
+                                                    }}
+                                                >
+                                                    <Pencil />
+                                                </IconButton>
+                                                <InputBase
+                                                    id={`input_file_input${row.id}`}
+                                                    placeholder="ссылка"
+                                                    defaultValue={row.file}
+                                                    sx={{
+                                                        fontFamily: 'Inter',
+                                                        fontSize: '12px',
+                                                        color: '#212121',
+                                                        fontWeight: '400',
+                                                        lineHeight: '22px'
+                                                    }}
+                                                    onBlur={() => console.log('onBlur')}    //Запускаем сабмит
+                                                ></InputBase>
+                                            </Box>
+                                        </TableCell>
                                         <TableCell>
                                             <Button>Отправить мерч +</Button>
                                         </TableCell>
