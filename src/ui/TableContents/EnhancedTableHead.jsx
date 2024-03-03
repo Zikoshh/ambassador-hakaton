@@ -1,5 +1,7 @@
-import { Box, TableHead, TableRow, TableCell, TableSortLabel, Checkbox } from '@mui/material/';
+import { Box, TableHead, TableRow, TableCell, TableSortLabel, Checkbox, Icon } from '@mui/material/';
 import { visuallyHidden } from '@mui/utils';
+import checkbox_check_table from '../../img/checkbox_check_table.svg';
+import checkbox_uncheck_table from '../../img/checkbox_uncheck_table.svg';
 
 export default function EnhancedTableHead(props) {
     const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, CollumnContents } = props;
@@ -18,12 +20,23 @@ export default function EnhancedTableHead(props) {
                     padding="checkbox"
                     align="center"
                     sx={{
-                        borderBottom: '1px solid #F7F7F8'
+                        borderBottom: '1px solid #F7F7F8',
+                        minWidth: '46px'
                     }}
                 >
                     <Checkbox
                         color="primary"
                         indeterminate={numSelected > 0 && numSelected < rowCount}
+                        icon={
+                            <Icon>
+                                <img src={checkbox_uncheck_table} />
+                            </Icon>
+                        }
+                        checkedIcon={
+                            <Icon>
+                                <img src={checkbox_check_table} />
+                            </Icon>
+                        }
                         checked={rowCount > 0 && numSelected === rowCount}
                         onChange={onSelectAllClick}
                         inputProps={{

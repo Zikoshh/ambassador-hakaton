@@ -13,7 +13,6 @@ const ActionButton = styled(Button)({
     textTransform: 'none',
     border: '1px solid #C3C3C9',
     borderRadius: '12px',
-    
     backgroundColor: '#FFFFFF',
     boxShadow: 'none',
     color: '#6B6872',

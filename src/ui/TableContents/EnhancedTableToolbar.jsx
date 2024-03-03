@@ -4,7 +4,7 @@ import { Plus, Magnifier, SlidersVertical, BarsDescendingAlignCenter, LayoutColu
 import ActionButton from '../ActionButton/ActionButton';
 import './tableContents.css';
 
-export default function EnhancedTableToolbar() {
+export default function EnhancedTableToolbar({title, textCreatButton}) {
     const [name, setName] = useState('');
     console.log('name', name);
 
@@ -36,7 +36,7 @@ export default function EnhancedTableToolbar() {
                     id="tableTitle"
                     component="div"
                 >
-                    Контент
+                    {title}
                 </Typography>
                 <Button
                     sx={{
@@ -55,7 +55,7 @@ export default function EnhancedTableToolbar() {
                     }}
                     variant="text"
                 >
-                    Создать форму
+                    {textCreatButton}
                     <Icon
                         sx={{
                             display: 'flex',

@@ -12,13 +12,29 @@ import {
     FormControlLabel,
     Switch,
     Button,
+    Icon,
+    Select,
+    MenuItem,
+    Link,
+    FormControl,
+    TextField,
+    InputAdornment,
+    IconButton,
+    InputBase
 } from '@mui/material/';
 
+import { Pencil } from '@gravity-ui/icons';
 
+import checkbox_check_table from '../../img/checkbox_check_table.svg';
+import checkbox_uncheck_table from '../../img/checkbox_uncheck_table.svg';
 import data_contents from '../../utils/temp_const';
 import { CollumnContents } from '../../utils/constants';
 import EnhancedTableToolbar from '../../ui/TableContents/EnhancedTableToolbar';
 import EnhancedTableHead from '../../ui/TableContents/EnhancedTableHead';
+import CheckboxFortable from '../../ui/CheckboxForTable/CheckboxForTable';
+import SelectForTable from '../../ui/SelectForTable/SelectForTable';
+import { DisabledByDefault } from '@mui/icons-material';
+import './style.css';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -49,7 +65,6 @@ function stableSort(array, comparator) {
     });
     return stabilizedThis.map((el) => el[0]);
 }
-
 
 /*
 EnhancedTableToolbar.propTypes = {
@@ -108,6 +123,15 @@ export default function ContentsTable() {
         setDense(event.target.checked);
     };
 
+    //мое
+    const handleClickGaid = (evt) => {
+        console.log(`gaid = ${evt.target.checked}`);
+    };
+
+    const handleClickTasks = (evt) => {
+        console.log(`tasks = ${evt.target.checked}`);
+    };
+
     const isSelected = (id) => selected.indexOf(id) !== -1;
 
     // Avoid a layout jump when reaching the last page with empty rows.
@@ -118,13 +142,26 @@ export default function ContentsTable() {
         [order, orderBy, page, rowsPerPage]
     );
 
+    const styleCell = {
+        fontFamily: 'Inter',
+        fontWeight: '400',
+        fontSize: '14px',
+        lineHeight: '22px',
+        color: '#212121'
+    };
+
+    // мое
+    const [valuePlatform, setValuePlatform] = React.useState('');
+    const [valueStatusProfile, setValueStatusProfile] = React.useState('');
+    const [stateInputContent, setStateInputContent] = React.useState(false); //состояние инпута в content
+
     // TODO: сделать полосу прокрутки в блоке только
     return (
         <Box sx={{ width: '100%' }}>
             <Paper sx={{ width: '100%', mb: 2 }}>
-                <EnhancedTableToolbar numSelected={selected.length} />
-                <TableContainer sx={{ width: '1600px' }}>
-                    <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
+                <EnhancedTableToolbar title="Контент" textCreatButton="Создать форму" />
+                <TableContainer sx={{ width: 'max-content' }}>
+                    <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
                         <EnhancedTableHead
                             numSelected={selected.length}
                             order={order}
@@ -138,46 +175,153 @@ export default function ContentsTable() {
                             {visibleRows.map((row, index) => {
                                 const isItemSelected = isSelected(row.id);
                                 const labelId = `enhanced-table-checkbox-${index}`;
+
                                 return (
                                     <TableRow
                                         hover
-                                        onClick={(event) => handleClick(event, row.id)}
-                                        role="checkbox"
                                         aria-checked={isItemSelected}
                                         tabIndex={-1}
                                         key={row.id}
                                         selected={isItemSelected}
                                         sx={{ cursor: 'pointer' }}
                                     >
-                                        <TableCell padding="checkbox">
+                                        <TableCell padding="checkbox" align="center">
                                             <Checkbox
                                                 color="primary"
                                                 checked={isItemSelected}
+                                                onClick={(event) => handleClick(event, row.id)}
+                                                icon={
+                                                    <Icon>
+                                                        <img src={checkbox_uncheck_table} />
+                                                    </Icon>
+                                                }
+                                                checkedIcon={
+                                                    <Icon>
+                                                        <img src={checkbox_check_table} />
+                                                    </Icon>
+                                                }
                                                 inputProps={{
                                                     'aria-labelledby': labelId
                                                 }}
+                                                sx={{ width: 14 }}
                                             />
                                         </TableCell>
-                                        <TableCell component="th" id={labelId} scope="row" padding="none">
+                                        <TableCell id={labelId} scope="row">
                                             {row.date}
                                         </TableCell>
-                                        <TableCell>{row.fio}</TableCell>
-                                        <TableCell>{row.telegram}</TableCell>
-                                        <TableCell>{row.status_profile}</TableCell>
-                                        <TableCell>
-                                            <Switch checked={row.gaid} />
+                                        <TableCell scope="row" sx={{ ...styleCell }}>
+                                            {row.fio}
                                         </TableCell>
-                                        <TableCell>
-                                            <Switch checked={row.tasks} />
+                                        <TableCell scope="row" sx={{ ...styleCell, color: '#6B6872' }}>
+                                            <Link
+                                                href={`https://t.me/${row.telegram}`}
+                                                target="_blank"
+                                                underline="none"
+                                                sx={{ ...styleCell, color: '#6B6872' }}
+                                            >
+                                                @{row.telegram}
+                                            </Link>
                                         </TableCell>
-                                        <TableCell>{row.platform}</TableCell>
-                                        <TableCell>{row.content}</TableCell>
-                                        <TableCell>{row.file}</TableCell>
+                                        <TableCell scope="row">
+                                            <FormControl fullWidth>
+                                                <SelectForTable
+                                                    value={valuePlatform} //исправить
+                                                    displayEmpty
+                                                    onChange={(evt) => console.log('platform = ', evt.target.value)}
+                                                >
+                                                    <MenuItem value="">
+                                                        <em>{row.status_profile}</em>
+                                                    </MenuItem>
+                                                    <MenuItem value={'Активный'}>Активный</MenuItem>
+                                                    <MenuItem value={'Не определен'}>Не определен</MenuItem>
+                                                    <MenuItem value={'Уточняется'}>Уточняется</MenuItem>
+                                                </SelectForTable>
+                                            </FormControl>
+                                        </TableCell>
+                                        <TableCell scope="row">
+                                            <CheckboxFortable defaultChecked={row.gaid} onClick={handleClickGaid} />
+                                        </TableCell>
+                                        <TableCell scope="row">
+                                            <CheckboxFortable defaultChecked={row.tasks} onClick={handleClickTasks} />
+                                        </TableCell>
+                                        <TableCell scope="row">
+                                            <FormControl fullWidth>
+                                                <SelectForTable
+                                                    value={valuePlatform} //исправить
+                                                    displayEmpty
+                                                    onChange={(evt) => console.log('platform = ', evt.target.value)}
+                                                >
+                                                    <MenuItem value="">
+                                                        <em>{row.platform}</em>
+                                                    </MenuItem>
+                                                    <MenuItem value={'Habr'}>Habr</MenuItem>
+                                                    <MenuItem value={'YouTube'}>YouTube11111111111111111</MenuItem>
+                                                    <MenuItem value={'VK'}>VK</MenuItem>
+                                                </SelectForTable>
+                                            </FormControl>
+                                        </TableCell>
+                                        <TableCell scope="row">
+                                            <Box
+                                                id={`input_content${row.id}`}
+                                                component="form"
+                                                noValidate
+                                                onSubmit={(evt) => { 
+                                                    console.log('onSubmit')
+                                                    evt.preventDefault()
+                                                }
+                                            }
+                                                onChange={() => console.log('onChange')}
+                                                onFocus={() => console.log('focus')}
+                                                sx={{
+                                                    width: 150,
+                                                    height: 28,
+                                                    display: 'flex',
+                                                    boxSizing: 'border-box',
+                                                    border: '1px solid #D5D5D5',
+                                                    borderRadius: '8px',
+                                                    '&:hover': {
+                                                        borderColor: '#A5A5AC',
+                                                    },
+                                                    '&:disabled': {
+                                                        borderColor: 'red',
+                                                    },
+                                                }}
+                                            >
+                                                <IconButton
+                                                    onClick={() => {
+                                                        const input = document.querySelector(`#input_content${row.id}`);
+                                                        console.log('родительский компонент', input);
+                                                        input.disabled = !input.disabled;
+                                                    }}
+                                                >
+                                                    <Pencil />
+                                                </IconButton>
+                                                <InputBase
+                                                    placeholder="ссылка"
+                                                    
+                                                    defaultValue={row.content}
+                                                    color='red'
+                                                    sx={{
+                                                        fontFamily: 'Inter',
+                                                        fontSize: '12px',
+                                                        color: '#212121',
+                                                        fontWeight: '400',
+                                                        lineHeight: '22px',
+                                                        '&:disabled': {
+                                                            backgroundColor: '#EDEDED'
+                                                        }
+                                                    }}
+                                                    
+                                                    onBlur={() => console.log('onBlur')}
+                                                ></InputBase>
+                                            </Box>
+                                        </TableCell>
+                                        <TableCell scope="row">{row.file}</TableCell>
                                         <TableCell>
                                             <Button>Отправить мерч +</Button>
                                         </TableCell>
-                                        <TableCell>{row.number_form}</TableCell>
-                                        <TableCell>{row.number_task}</TableCell>
+                                        <TableCell scope="row">{row.number_form}</TableCell>
+                                        <TableCell scope="row">{row.number_task}</TableCell>
                                     </TableRow>
                                 );
                             })}
