@@ -1,3 +1,9 @@
+.box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .cardForm {
     font-family: 'Inter';
     display: flex;
@@ -32,6 +38,11 @@
     border-radius: 10px;
     background: transparent;
 }
+
+.cardForm__input:last-of-type {
+    margin-bottom: 0px;
+}
+
 .cardForm__input::placeholder {
     font-family: Inter;
     font-size: 14px;
@@ -45,6 +56,10 @@
     position: relative;
     background: transparent;
     margin-bottom: 16px;
+}
+
+.cardForm__box:last-of-type {
+    margin-bottom: 0px;
 }
 
 .cardForm__chevronIcon {
@@ -90,7 +105,9 @@ option {
     flex-direction: row;
     justify-content: center;
     gap: 16px;
-    margin: 24px auto 0px;
+    padding: 0px 0px 40px;
+    margin: 40px 0px 0px;
+    border-bottom-right-radius: '8px';
 }
 
 .cardForm__button-confirm {

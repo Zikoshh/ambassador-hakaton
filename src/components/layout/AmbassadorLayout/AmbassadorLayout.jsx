@@ -10,17 +10,17 @@ const AmbassadorLayout = () => {
             sx={{
                 display: 'flex',
                 width: '668px',
-                height: '100vh',
+
                 margin: '20px auto 0px',
                 flexDirection: 'column',
-                borderRadius: '10px',
+                borderRadius: '8px',
                 border: '1px solid rgb(195, 195, 201)'
             }}
         >
             <Card_Header />
-            <Box sx={{ display: 'flex', width: '668px', height: '100%', margin: '0' }}>
+            <Box sx={{ display: 'flex', width: '668px', height: '100%', margin: '0', borderRadius: '8px' }}>
                 <LeftMenu />
-                <Box sx={{ display: 'flex', width: '100%' }}>
+                <Box sx={{ display: 'flex', width: '100%', borderRadius: '8px' }}>
                     <Outlet />
                 </Box>
             </Box>

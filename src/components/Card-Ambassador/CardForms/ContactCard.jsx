@@ -1,6 +1,5 @@
 import { Box, InputLabel } from '@mui/material';
-import './CardForm.css';
-import { ChevronDown } from '@gravity-ui/icons';
+import './ContactCard.css';
 
 const CardForm = () => {
     return (
@@ -14,30 +13,7 @@ const CardForm = () => {
                     textAlign: 'left'
                 }}
             >
-                Статус
-            </InputLabel>
-            <Box className="cardForm__box">
-                <ChevronDown className="cardForm__chevronIcon" />
-                <select className="cardForm__input">
-                    <option selected disabled>
-                        Выберите из списка
-                    </option>
-                    <option value="1">Статус-1</option>
-                    <option value="2">Статус-2</option>
-                    <option value="3">Статус-3</option>
-                </select>
-            </Box>
-
-            <InputLabel
-                sx={{
-                    color: 'rgb(0, 0, 0)',
-                    fontSize: '12px',
-                    fontWeight: '600',
-                    lineHeight: '22px',
-                    textAlign: 'left'
-                }}
-            >
-                ФИО
+                Email
             </InputLabel>
             <Box className="cardForm__box">
                 <input placeholder="Добавить" className="cardForm__input"></input>
@@ -52,18 +28,10 @@ const CardForm = () => {
                     textAlign: 'left'
                 }}
             >
-                Пол
+                Номер телефона
             </InputLabel>
             <Box className="cardForm__box">
-                <ChevronDown className="cardForm__chevronIcon" />
-                <select className="cardForm__input">
-                    <option selected disabled>
-                        Выберите из списка
-                    </option>
-                    <option value="1">Статус-1</option>
-                    <option value="2">Статус-2</option>
-                    <option value="3">Статус-3</option>
-                </select>
+                <input placeholder="Добавить" className="cardForm__input"></input>
             </Box>
 
             <InputLabel
@@ -75,22 +43,44 @@ const CardForm = () => {
                     textAlign: 'left'
                 }}
             >
-                Программа
+                Telegram
             </InputLabel>
-            <Box className="cardForm__box">
+            <Box className="cardForm__box index">
                 <input placeholder="Добавить" className="cardForm__input"></input>
             </Box>
-            <Box className="cardForm__box">
-                <input type="checkbox" tabIndex="0" aria-checked="false"></input>
-                <label className="checkbox-name">Амбассадор прошел Онбординг</label>
+
+            <InputLabel
+                sx={{
+                    color: 'rgb(0, 0, 0)',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    lineHeight: '22px',
+                    textAlign: 'left'
+                }}
+            >
+                Whatsapp
+            </InputLabel>
+            <Box className="cardForm__box index">
+                <input placeholder="Добавить" className="cardForm__input"></input>
             </Box>
-            <Box className="cardForm__box">
-                <input type="checkbox" tabIndex="0" aria-checked="false"></input>
-                <label className="checkbox-name">Амбассадор выполнил задания из Гайда</label>
+
+            <InputLabel
+                sx={{
+                    color: 'rgb(0, 0, 0)',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    lineHeight: '22px',
+                    textAlign: 'left'
+                }}
+            >
+                Блог
+            </InputLabel>
+            <Box className="cardForm__box-contact">
+                <input placeholder="Добавить" className="cardForm__input-contact"></input>
             </Box>
-            <div className="cardForm__buttons">
+            <div className="cardForm__buttons contacts">
                 <button className="cardForm__button-cancel">Сбросить</button>
-                <button className="cardForm__button-confirm">Отправить</button>
+                <button className="cardForm__button-confirm">Сохранить</button>
             </div>
         </form>
     );

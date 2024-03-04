@@ -7,7 +7,11 @@ export default function Bottom_Menu() {
         console.log('click', evt);
     };
     return (
-        <Stack sx={{ width: '224px', display: 'flex', margin: '0px 0px 20px 20px', gap: '4px' }} useFlexGap spacing={2}>
+        <Stack
+            sx={{ width: '224px', display: 'flex', margin: '0px 0px 20px 20px', gap: '4px', borderRadius: '8px' }}
+            useFlexGap
+            spacing={2}
+        >
             <MenuButton startIcon={<Archive />} onClick={handleClick}>
                 Архивировать
             </MenuButton>

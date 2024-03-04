@@ -10,7 +10,8 @@ const LeftMenu = () => {
                 flexDirection: 'column',
                 justifyContent: 'space-between',
                 width: '252px',
-                backgroundColor: 'rgb(247, 247, 248)'
+                backgroundColor: 'rgb(247, 247, 248)',
+                borderBottomLeftRadius: '8px'
             }}
         >
             <Menu />

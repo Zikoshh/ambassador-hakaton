@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { Camera } from '@gravity-ui/icons';
-import CardForm from '../../../ui/MenuForm/CardForm';
+import CardForm from '../MenuForm/CardForm';
 
 const MainInfo = () => {
     return (
@@ -9,11 +9,12 @@ const MainInfo = () => {
                 fontFamily: ('Inter', 'Arial', 'sans-serif'),
                 display: 'flex',
                 flexDirection: 'column',
-                padding: '40px 40px',
+                padding: '40px 40px 0px',
                 width: '100%',
                 backgroundColor: '#ffff',
                 border: 'none',
-                outline: 'none'
+                outline: 'none',
+                borderRadius: '8px'
             }}
         >
             <Typography
