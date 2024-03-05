@@ -1,8 +1,10 @@
 import './ProfilePopup.css';
 import profileImage from '../../assets/logo.svg';
 import ProfileOutPopup from '../ProfileOutPopup/ProfileOutPopup';
+import ProfilePopupAccount from '../ProfilePopupAccount/ProfilePopupAccount';
 
-export default function ProfilePopup({ isOpen }) {
+export default function ProfilePopup({ isOpen, isOpenOutPopup, handleProfileOutClick, handleAllPopupClose, 
+  handleProfileAccountClick, isProfilePopupAccount }) {
     const profileButtonClassName = `profile-popup ${isOpen && 'profile-popup-open'}`;
     return (
         <>
@@ -13,11 +15,14 @@ export default function ProfilePopup({ isOpen }) {
                     <p className="profile-popup__email">email@email.com</p>
                 </div>
                 <div className="profile-popup__buttons">
-                    <button className="profile-popup__button">Личный кабинет</button>
-                    <button className="profile-popup__button">Выход</button>
+                    <button className="profile-popup__button" onClick={handleProfileAccountClick}>Личный кабинет</button>
+                    <button className="profile-popup__button" onClick={handleProfileOutClick}>
+                        Выход
+                    </button>
                 </div>
             </div>
-            <ProfileOutPopup />
+            <ProfileOutPopup isOpenOutPopup={isOpenOutPopup} handleAllPopupClose={handleAllPopupClose} />
+            <ProfilePopupAccount isProfilePopupAccount={isProfilePopupAccount}/>
         </>
     );
 }
