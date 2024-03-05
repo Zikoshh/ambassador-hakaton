@@ -1,7 +1,19 @@
+import { useState } from 'react';
 import { Box, InputLabel } from '@mui/material';
 import './AdressCard.css';
 
-const CardForm = () => {
+const AdressCard = () => {
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+    const handleSave = (e) => {
+        e.preventDefault();
+        setShowSuccessPopup(true);
+
+        setTimeout(() => {
+            setShowSuccessPopup(false);
+        }, 3000);
+    };
+
     return (
         <Box className="box-container">
             <form className="cardForm">
@@ -65,11 +77,20 @@ const CardForm = () => {
                     <input placeholder="Добавить" className="cardForm__input"></input>
                 </Box>
             </form>
+
             <div className="cardForm__buttons adress">
                 <button className="cardForm__button-cancel">Сбросить</button>
-                <button className="cardForm__button-confirm">Сохранить</button>
+                <button className="cardForm__button-confirm" onClick={handleSave}>
+                    Сохранить
+                </button>
+                {showSuccessPopup && (
+                    <div className="successPopup">
+                        <span className="successPopup__icon"></span>
+                        <span className="successPopup__text">Изменения сохранены</span>
+                    </div>
+                )}
             </div>
         </Box>
     );
 };
-export default CardForm;
+export default AdressCard;

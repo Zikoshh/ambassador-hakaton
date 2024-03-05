@@ -1,8 +1,23 @@
+import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import { Camera } from '@gravity-ui/icons';
 import CardForm from '../MenuForm/CardForm';
 
 const MainInfo = () => {
+    const [photo, setPhoto] = useState(null);
+
+    const handleUploadPhoto = () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                setPhoto(file);
+            }
+        };
+        input.click();
+    };
+
     return (
         <Box
             sx={{
@@ -43,24 +58,34 @@ const MainInfo = () => {
                     borderRadius: '50%'
                 }}
             >
-                <Box
-                    className="avatar-icon"
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        position: 'absolute',
-                        width: '24px',
-                        height: '24px',
-                        backgroundColor: 'rgba(98, 93, 245, 1)',
-                        borderRadius: '50%',
-                        color: '#fff',
-                        top: 0,
-                        right: 0
-                    }}
-                >
-                    <Camera />
-                </Box>
+                {photo ? (
+                    <img
+                        src={URL.createObjectURL(photo)}
+                        alt="User Avatar"
+                        style={{ width: '100%', height: '100%', borderRadius: '50%' }}
+                    />
+                ) : (
+                    <Box
+                        className="avatar-icon"
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            position: 'absolute',
+                            width: '24px',
+                            height: '24px',
+                            backgroundColor: 'rgba(98, 93, 245, 1)',
+                            borderRadius: '50%',
+                            color: '#fff',
+                            top: 0,
+                            right: 0,
+                            cursor: 'pointer'
+                        }}
+                        onClick={handleUploadPhoto}
+                    >
+                        <Camera />
+                    </Box>
+                )}
                 <Typography
                     sx={{
                         position: 'absolute',

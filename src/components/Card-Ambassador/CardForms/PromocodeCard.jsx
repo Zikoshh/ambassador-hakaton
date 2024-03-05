@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
@@ -6,6 +7,17 @@ import './SizeCard.css';
 import './PromocodeCard.css';
 
 const PromocodeCard = () => {
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+    const handleSave = (e) => {
+        e.preventDefault();
+        setShowSuccessPopup(true);
+
+        setTimeout(() => {
+            setShowSuccessPopup(false);
+        }, 3000);
+    };
+
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -201,7 +213,15 @@ const PromocodeCard = () => {
             </Stack>
             <div className="cardForm__buttons promo">
                 <button className="cardForm__button-cancel">Сбросить</button>
-                <button className="cardForm__button-confirm">Сохранить</button>
+                <button className="cardForm__button-confirm" onClick={handleSave}>
+                    Сохранить
+                </button>
+                {showSuccessPopup && (
+                    <div className="successPopup">
+                        <span className="successPopup__icon"></span>
+                        <span className="successPopup__text">Изменения сохранены</span>
+                    </div>
+                )}
             </div>
         </form>
     );

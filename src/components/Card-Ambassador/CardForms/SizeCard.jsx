@@ -1,7 +1,19 @@
+import { useState } from 'react';
 import { Box, InputLabel } from '@mui/material';
 import './SizeCard.css';
 
 const SizeCard = () => {
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+    const handleSave = (e) => {
+        e.preventDefault();
+        setShowSuccessPopup(true);
+
+        setTimeout(() => {
+            setShowSuccessPopup(false);
+        }, 3000);
+    };
+
     return (
         <form className="cardForm">
             <InputLabel
@@ -35,7 +47,15 @@ const SizeCard = () => {
             </Box>
             <div className="cardForm__buttons size">
                 <button className="cardForm__button-cancel">Сбросить</button>
-                <button className="cardForm__button-confirm">Сохранить</button>
+                <button className="cardForm__button-confirm" onClick={handleSave}>
+                    Сохранить
+                </button>
+                {showSuccessPopup && (
+                    <div className="successPopup">
+                        <span className="successPopup__icon"></span>
+                        <span className="successPopup__text">Изменения сохранены</span>
+                    </div>
+                )}
             </div>
         </form>
     );

@@ -56,6 +56,21 @@
     position: relative;
     background: transparent;
     margin-bottom: 16px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    appearance: none;
+    border-radius: 8px;
+}
+.cardForm__box::placeholder {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(171, 171, 171, 1);
 }
 
 .cardForm__box:last-of-type {
@@ -70,26 +85,6 @@
     color: rgba(99, 98, 98, 0.3);
 }
 
-select {
-    font-family: Inter;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 22px;
-    text-align: left;
-    appearance: none;
-    border: 1px solid rgba(213, 213, 213, 1);
-    color: rgba(99, 98, 98, 0.3);
-    cursor: pointer;
-}
-
-option {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 22px;
-    text-align: left;
-    color: rgba(99, 98, 98, 0.3);
-}
-
 .checkbox-name {
     font-family: Inter;
     font-size: 14px;
@@ -101,6 +96,7 @@ option {
 }
 
 .cardForm__buttons {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -140,3 +136,73 @@ option {
     text-align: center;
     cursor: pointer;
 }
+
+.successPopup {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 216px;
+    padding: 13px 16px;
+    background-color: rgba(209, 249, 238, 1);
+    color: rgba(54, 196, 160, 1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.successPopup__icon {
+    width: 20px;
+    height: 20px;
+    background-image: url(../../../img/message_icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+.successPopup__text {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+}
+
+/* select {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    appearance: none;
+    border: 1px solid rgba(213, 213, 213, 1);
+    color: rgba(99, 98, 98, 0.3);
+    cursor: pointer;
+}
+select::placeholder {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    appearance: none;
+    border: 1px solid rgba(213, 213, 213, 1);
+    color: rgba(99, 98, 98, 0.3);
+    cursor: pointer;
+}
+
+.cardForm__input option {
+    max-width: 336px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.85);
+    background-color: #f4f4f4;
+    padding: 10px;
+} */
