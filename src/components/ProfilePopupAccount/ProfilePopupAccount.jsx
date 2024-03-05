@@ -12,7 +12,7 @@ export default function ProfilePopupAccount({ isProfilePopupAccount }) {
                 <div className="account-popup__user">
                     <img src="#" className="account-popup__image" alt="Button close" />
                     <div className="account-popup__user-data">
-                      <p className="account-popup__name">Анна Белова</p>
+                      <p className="account-popup__name">Анна Белова</p>  
                     </div>
                 </div>
             </div>
