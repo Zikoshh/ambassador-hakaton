@@ -75,7 +75,6 @@ export default function ContentsTable() {
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const [personName, setPersonName] = React.useState([]); //замени для поля № задач
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -367,15 +366,15 @@ export default function ContentsTable() {
                                         <FormControl sx={{ m: 1, width: 300 }}>
                                             <Select
                                                 id={`number_tasks_select${row.id}`}
-                                                value={personName}
-                                                onChange={(evt) => setPersonName(evt.target.value)}
+                                                value={row.number_task}
+                                                onChange={(evt) => console.log(evt.target.value)}
                                                 input={<OutlinedInput id={`number_tasks_input${row.id}`} />}
                                                 renderValue={(selected) => (
                                                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                                                         <Chip
-                                                            key={selected}
+                                                            key={`number_tasks_select${row.id}`}
                                                             label={selected}
-                                                            onClick={() => console.log(selected)}
+                                                            onClick={() => console.log('клик по иконке')}
                                                             sx={{
                                                                 backgroundColor: '#FBF9FF',
                                                                 border: '1px solid #E1E1F7',
@@ -401,9 +400,8 @@ export default function ContentsTable() {
                                                     fontSize: '14px'
                                                 }}
                                             >
-                                                <MenuItem value="12">12</MenuItem>
-                                                <MenuItem value="13">13</MenuItem>
-                                                <MenuItem value="14">14</MenuItem>
+                                                <MenuItem value='56'>56</MenuItem>
+                                                <MenuItem value='89'>89</MenuItem>
                                             </Select>
                                         </FormControl>
                                     </TableCell>
