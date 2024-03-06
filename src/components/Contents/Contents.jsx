@@ -20,8 +20,13 @@ import {
     TextField,
     InputAdornment,
     IconButton,
-    InputBase
+    InputBase,
+    Autocomplete,
+    Stack,
+    Typography
 } from '@mui/material/';
+
+import Chip from '@mui/material/Chip';
 
 import { Pencil } from '@gravity-ui/icons';
 
@@ -35,6 +40,12 @@ import CheckboxFortable from '../../ui/CheckboxForTable/CheckboxForTable';
 import SelectForTable from '../../ui/SelectForTable/SelectForTable';
 import { DisabledByDefault } from '@mui/icons-material';
 import './style.css';
+
+const top100Films = [
+    { title: '28', year: 1994 },
+    { title: '14', year: 1972 },
+    { title: '15625', year: 1974 }
+];
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -134,9 +145,6 @@ export default function ContentsTable() {
 
     const isSelected = (id) => selected.indexOf(id) !== -1;
 
-    // Avoid a layout jump when reaching the last page with empty rows.
-    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data_contents.length) : 0;
-
     const visibleRows = React.useMemo(
         () => stableSort(data_contents, getComparator(order, orderBy)).slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
         [order, orderBy, page, rowsPerPage]
@@ -152,244 +160,271 @@ export default function ContentsTable() {
 
     // мое
     const [valuePlatform, setValuePlatform] = React.useState('');
-    const [valueStatusProfile, setValueStatusProfile] = React.useState('');
-    const [stateInputContent, setStateInputContent] = React.useState(false); //состояние инпута в content
 
     // TODO: сделать полосу прокрутки в блоке только
     return (
-        <Box sx={{ width: '100%' }}>
-            <Paper sx={{ width: '100%', mb: 2 }}>
-                <EnhancedTableToolbar title="Контент" textCreatButton="Создать форму" />
-                <TableContainer sx={{ width: 'max-content' }}>
-                    <Table aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
-                        <EnhancedTableHead
-                            numSelected={selected.length}
-                            order={order}
-                            orderBy={orderBy}
-                            onSelectAllClick={handleSelectAllClick}
-                            onRequestSort={handleRequestSort}
-                            rowCount={data_contents.length}
-                            CollumnContents={CollumnContents}
-                        />
-                        <TableBody>
-                            {visibleRows.map((row, index) => {
-                                const isItemSelected = isSelected(row.id);
-                                const labelId = `enhanced-table-checkbox-${index}`;
-
-                                return (
-                                    <TableRow
-                                        hover
-                                        aria-checked={isItemSelected}
-                                        tabIndex={-1}
-                                        key={row.id}
-                                        selected={isItemSelected}
-                                        sx={{ cursor: 'pointer' }}
-                                    >
-                                        <TableCell padding="checkbox" align="center">
-                                            <Checkbox
-                                                color="primary"
-                                                checked={isItemSelected}
-                                                onClick={(event) => handleClick(event, row.id)}
-                                                icon={
-                                                    <Icon>
-                                                        <img src={checkbox_uncheck_table} />
-                                                    </Icon>
-                                                }
-                                                checkedIcon={
-                                                    <Icon>
-                                                        <img src={checkbox_check_table} />
-                                                    </Icon>
-                                                }
-                                                inputProps={{
-                                                    'aria-labelledby': labelId
-                                                }}
-                                                sx={{ width: 14 }}
-                                            />
-                                        </TableCell>
-                                        <TableCell id={labelId} scope="row">
-                                            {row.date}
-                                        </TableCell>
-                                        <TableCell scope="row" sx={{ ...styleCell }}>
-                                            {row.fio}
-                                        </TableCell>
-                                        <TableCell scope="row" sx={{ ...styleCell, color: '#6B6872' }}>
-                                            <Link
-                                                href={`https://t.me/${row.telegram}`}
-                                                target="_blank"
-                                                underline="none"
-                                                sx={{ ...styleCell, color: '#6B6872' }}
-                                            >
-                                                @{row.telegram}
-                                            </Link>
-                                        </TableCell>
-                                        <TableCell scope="row">
-                                            <FormControl fullWidth>
-                                                <SelectForTable
-                                                    value={valuePlatform} //исправить
-                                                    displayEmpty
-                                                    onChange={(evt) => console.log('platform = ', evt.target.value)}
-                                                >
-                                                    <MenuItem value="">
-                                                        <em>{row.status_profile}</em>
-                                                    </MenuItem>
-                                                    <MenuItem value={'Активный'}>Активный</MenuItem>
-                                                    <MenuItem value={'Не определен'}>Не определен</MenuItem>
-                                                    <MenuItem value={'Уточняется'}>Уточняется</MenuItem>
-                                                </SelectForTable>
-                                            </FormControl>
-                                        </TableCell>
-                                        <TableCell scope="row">
-                                            <CheckboxFortable defaultChecked={row.gaid} onClick={handleClickGaid} />
-                                        </TableCell>
-                                        <TableCell scope="row">
-                                            <CheckboxFortable defaultChecked={row.tasks} onClick={handleClickTasks} />
-                                        </TableCell>
-                                        <TableCell scope="row">
-                                            <FormControl fullWidth>
-                                                <SelectForTable
-                                                    value={valuePlatform} //исправить
-                                                    displayEmpty
-                                                    onChange={(evt) => console.log('platform = ', evt.target.value)}
-                                                >
-                                                    <MenuItem value="">
-                                                        <em>{row.platform}</em>
-                                                    </MenuItem>
-                                                    <MenuItem value={'Habr'}>Habr</MenuItem>
-                                                    <MenuItem value={'YouTube'}>YouTube11111111111111111</MenuItem>
-                                                    <MenuItem value={'VK'}>VK</MenuItem>
-                                                </SelectForTable>
-                                            </FormControl>
-                                        </TableCell>
-                                        <TableCell scope="row">
-                                            <Box
-                                                id={`input_content_cell${row.id}`}
-                                                component="form"
-                                                noValidate
-                                                onSubmit={(evt) => {
-                                                    console.log('onSubmit');
-                                                    evt.preventDefault();
-                                                }}
-                                                onChange={() => console.log('onChange')}
-                                                sx={{
-                                                    width: 150,
-                                                    height: 28,
-                                                    display: 'flex',
-                                                    boxSizing: 'border-box',
-                                                    border: '1px solid #D5D5D5',
-                                                    borderRadius: '8px',
-                                                    '&:hover': {
-                                                        borderColor: '#A5A5AC'
-                                                    }
-                                                }}
-                                            >
-                                                <IconButton
-                                                    onClick={() => {
-                                                        const input = document.querySelector(`#input_content_input${row.id}`);
-                                                        input.disabled = !input.disabled;
-                                                        const cell = document.querySelector(`#input_content_cell${row.id}`);
-                                                        input.disabled
-                                                            ? cell.setAttribute('style', 'background-color: #D5D5D5')
-                                                            : cell.setAttribute('style', 'background-color: #fff');
-                                                    }}
-                                                >
-                                                    <Pencil />
-                                                </IconButton>
-                                                <InputBase
-                                                    id={`input_content_input${row.id}`}
-                                                    placeholder="ссылка"
-                                                    defaultValue={row.content}
-                                                    sx={{
-                                                        fontFamily: 'Inter',
-                                                        fontSize: '12px',
-                                                        color: '#212121',
-                                                        fontWeight: '400',
-                                                        lineHeight: '22px'
-                                                    }}
-                                                    onBlur={() => console.log('onBlur')}    //Запускаем сабмит
-                                                ></InputBase>
-                                            </Box>
-                                        </TableCell>
-                                        <TableCell scope="row">
-                                            <Box
-                                                id={`input_file_cell${row.id}`}
-                                                component="form"
-                                                noValidate
-                                                onSubmit={(evt) => {
-                                                    console.log('onSubmit');
-                                                    evt.preventDefault();
-                                                }}
-                                                onChange={() => console.log('onChange')}
-                                                sx={{
-                                                    width: 150,
-                                                    height: 28,
-                                                    display: 'flex',
-                                                    boxSizing: 'border-box',
-                                                    border: '1px solid #D5D5D5',
-                                                    borderRadius: '8px',
-                                                    '&:hover': {
-                                                        borderColor: '#A5A5AC'
-                                                    }
-                                                }}
-                                            >
-                                                <IconButton
-                                                    onClick={() => {
-                                                        const input = document.querySelector(`#input_file_input${row.id}`);
-                                                        input.disabled = !input.disabled;
-                                                        const cell = document.querySelector(`#input_file_cell${row.id}`);
-                                                        input.disabled
-                                                            ? cell.setAttribute('style', 'background-color: #D5D5D5')
-                                                            : cell.setAttribute('style', 'background-color: #fff');
-                                                    }}
-                                                >
-                                                    <Pencil />
-                                                </IconButton>
-                                                <InputBase
-                                                    id={`input_file_input${row.id}`}
-                                                    placeholder="ссылка"
-                                                    defaultValue={row.file}
-                                                    sx={{
-                                                        fontFamily: 'Inter',
-                                                        fontSize: '12px',
-                                                        color: '#212121',
-                                                        fontWeight: '400',
-                                                        lineHeight: '22px'
-                                                    }}
-                                                    onBlur={() => console.log('onBlur')}    //Запускаем сабмит
-                                                ></InputBase>
-                                            </Box>
-                                        </TableCell>
-                                        <TableCell>
-                                            <Button>Отправить мерч +</Button>
-                                        </TableCell>
-                                        <TableCell scope="row">{row.number_form}</TableCell>
-                                        <TableCell scope="row">{row.number_task}</TableCell>
-                                    </TableRow>
-                                );
-                            })}
-
-                            {emptyRows > 0 && (
+        <Box sx={{ width: '100%', mb: 2 }}>
+            <EnhancedTableToolbar title="Контент" textCreatButton="Создать форму" />
+            <TableContainer>
+                <Table aria-labelledby="tableTitle" size="small">
+                    <EnhancedTableHead
+                        numSelected={selected.length}
+                        order={order}
+                        orderBy={orderBy}
+                        onSelectAllClick={handleSelectAllClick}
+                        onRequestSort={handleRequestSort}
+                        rowCount={data_contents.length}
+                        CollumnContents={CollumnContents}
+                    />
+                    <TableBody>
+                        {visibleRows.map((row, index) => {
+                            const isItemSelected = isSelected(row.id);
+                            const labelId = `enhanced-table-checkbox-${index}`;
+                            return (
                                 <TableRow
-                                    style={{
-                                        height: (dense ? 33 : 53) * emptyRows
-                                    }}
+                                    hover
+                                    aria-checked={isItemSelected}
+                                    tabIndex={-1}
+                                    key={row.id}
+                                    selected={isItemSelected}
+                                    sx={{ cursor: 'pointer', height: '48px', width: '500px' }}
                                 >
-                                    <TableCell colSpan={6} />
+                                    <TableCell padding="checkbox" align="center" sx={{ padding: '0px', margin: '0px' }}>
+                                        <Checkbox
+                                            color="primary"
+                                            checked={isItemSelected}
+                                            onClick={(event) => handleClick(event, row.id)}
+                                            sx={{ width: '14px', height: '14px' }}
+                                            icon={
+                                                <Icon>
+                                                    <img src={checkbox_uncheck_table} />
+                                                </Icon>
+                                            }
+                                            checkedIcon={
+                                                <Icon>
+                                                    <img src={checkbox_check_table} />
+                                                </Icon>
+                                            }
+                                            inputProps={{
+                                                'aria-labelledby': labelId
+                                            }}
+                                        />
+                                    </TableCell>
+                                    <TableCell id={labelId} scope="row">
+                                        <Typography>{row.date}</Typography>
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <Typography sx={{ width: 'max-content' }}>{row.fio}</Typography>
+                                    </TableCell>
+                                    <TableCell scope="row" sx={{ ...styleCell, color: '#6B6872' }}>
+                                        <Link
+                                            href={`https://t.me/${row.telegram}`}
+                                            target="_blank"
+                                            underline="none"
+                                            sx={{ ...styleCell, color: '#6B6872' }}
+                                        >
+                                            @{row.telegram}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <FormControl fullWidth>
+                                            <SelectForTable
+                                                value={valuePlatform} //исправить
+                                                displayEmpty
+                                                onChange={(evt) => console.log('platform = ', evt.target.value)}
+                                            >
+                                                <MenuItem value="">
+                                                    <em>{row.status_profile}</em>
+                                                </MenuItem>
+                                                <MenuItem value={'Активный'}>Активный</MenuItem>
+                                                <MenuItem value={'Не определен'}>Не определен</MenuItem>
+                                                <MenuItem value={'Уточняется'}>Уточняется</MenuItem>
+                                            </SelectForTable>
+                                        </FormControl>
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <CheckboxFortable defaultChecked={row.gaid} onClick={handleClickGaid} />
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <CheckboxFortable defaultChecked={row.tasks} onClick={handleClickTasks} />
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <FormControl fullWidth>
+                                            <SelectForTable
+                                                value={valuePlatform} //исправить
+                                                displayEmpty
+                                                onChange={(evt) => console.log('platform = ', evt.target.value)}
+                                            >
+                                                <MenuItem value="">
+                                                    <em>{row.platform}</em>
+                                                </MenuItem>
+                                                <MenuItem value={'Habr'}>Habr</MenuItem>
+                                                <MenuItem value={'YouTube'}>YouTube11111111111111111</MenuItem>
+                                                <MenuItem value={'VK'}>VK</MenuItem>
+                                            </SelectForTable>
+                                        </FormControl>
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <Box
+                                            id={`input_content_cell${row.id}`}
+                                            component="form"
+                                            noValidate
+                                            onSubmit={(evt) => {
+                                                console.log('onSubmit');
+                                                evt.preventDefault();
+                                            }}
+                                            onClick={() => console.log('test')}
+                                            onChange={() => console.log('onChange')}
+                                            sx={{
+                                                width: 150,
+                                                height: 28,
+                                                display: 'flex',
+                                                boxSizing: 'border-box',
+                                                border: '1px solid #D5D5D5',
+                                                borderRadius: '8px',
+                                                '&:hover': {
+                                                    borderColor: '#A5A5AC'
+                                                }
+                                            }}
+                                        >
+                                            <IconButton
+                                                onClick={() => {
+                                                    const input = document.querySelector(`#input_content_input${row.id}`);
+                                                    input.disabled = !input.disabled;
+                                                    const cell = document.querySelector(`#input_content_cell${row.id}`);
+                                                    input.disabled
+                                                        ? cell.setAttribute('style', 'background-color: #D5D5D5')
+                                                        : cell.setAttribute('style', 'background-color: #fff');
+                                                }}
+                                            >
+                                                <Pencil />
+                                            </IconButton>
+                                            <InputBase
+                                                id={`input_content_input${row.id}`}
+                                                placeholder="ссылка"
+                                                defaultValue={row.content}
+                                                onClick={() => console.log('клик по инпуту')}
+                                                sx={{
+                                                    fontFamily: 'Inter',
+                                                    fontSize: '12px',
+                                                    color: '#212121',
+                                                    fontWeight: '400',
+                                                    lineHeight: '22px'
+                                                }}
+                                                onBlur={() => console.log('onBlur')} //Запускаем сабмит
+                                            ></InputBase>
+                                        </Box>
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <Box
+                                            id={`input_file_cell${row.id}`}
+                                            component="form"
+                                            noValidate
+                                            onSubmit={(evt) => {
+                                                console.log('onSubmit');
+                                                evt.preventDefault();
+                                            }}
+                                            onChange={() => console.log('onChange')}
+                                            sx={{
+                                                width: 150,
+                                                height: 28,
+                                                display: 'flex',
+                                                boxSizing: 'border-box',
+                                                border: '1px solid #D5D5D5',
+                                                borderRadius: '8px',
+                                                '&:hover': {
+                                                    borderColor: '#A5A5AC'
+                                                }
+                                            }}
+                                        >
+                                            <IconButton
+                                                onClick={() => {
+                                                    const input = document.querySelector(`#input_file_input${row.id}`);
+                                                    input.disabled = !input.disabled;
+                                                    const cell = document.querySelector(`#input_file_cell${row.id}`);
+                                                    input.disabled
+                                                        ? cell.setAttribute('style', 'background-color: #D5D5D5')
+                                                        : cell.setAttribute('style', 'background-color: #fff');
+                                                }}
+                                            >
+                                                <Pencil />
+                                            </IconButton>
+                                            <InputBase
+                                                id={`input_file_input${row.id}`}
+                                                placeholder="ссылка"
+                                                defaultValue={row.file}
+                                                sx={{
+                                                    fontFamily: 'Inter',
+                                                    fontSize: '12px',
+                                                    color: '#212121',
+                                                    fontWeight: '400',
+                                                    lineHeight: '22px'
+                                                }}
+                                                onBlur={() => console.log('onBlur')} //Запускаем сабмит
+                                            ></InputBase>
+                                        </Box>
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <Button
+                                            sx={{
+                                                width: 'max-content',
+                                                backgroundColor: '#FBF9FF',
+                                                height: '28px',
+                                                borderRadius: '8px',
+                                                '&:hover': {
+                                                    backgroundColor: '#342DF2',
+                                                    color: '#FCFCFC',
+                                                    fontWeight: '500'
+                                                }
+                                            }}
+                                            href="/456"
+                                            variant="outlined"
+                                            fullWidth
+                                        >
+                                            Отправить мерч +
+                                        </Button>
+                                    </TableCell>
+                                    <TableCell scope="row">
+                                        <Typography sx={{ color: '#6B6872', width: '100px' }}>{row.number_form}</Typography>
+                                    </TableCell>
+                                    <TableCell scope="row" >
+                                            <Autocomplete
+                                                multiple
+                                                limitTags='1'
+                                                fullWidth
+                                                id="number_tasks"
+                                                size="small"
+                                                options={top100Films}
+                                                openText='test'
+                                                //readOnly
+                                                getOptionLabel={(option) => option.title}
+                                                filterSelectedOptions
+                                                sx={{ height: '28px', minWidth: '170px', width: 'max-content', padding: 0, margin: 0 }}
+                                                renderInput={(params) => (
+                                                    <TextField
+                                                        {...params}
+                                                        variant="outlined"
+                                                        placeholder='test'
+                                                        sx={{ height: '28px', fontSize: '10px', lineHeight: '22px' }}
+                                                    />
+                                                )}
+                                            />
+                                    </TableCell>
                                 </TableRow>
-                            )}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
-                <TablePagination
-                    rowsPerPageOptions={[5, 10, 25]}
-                    component="div"
-                    count={data_contents.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-            </Paper>
-            <FormControlLabel control={<Switch checked={dense} onChange={handleChangeDense} />} label="Dense padding" />
+                            );
+                        })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            <TablePagination
+                rowsPerPageOptions={[5, 10, 25]}
+                component="div"
+                count={data_contents.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
         </Box>
     );
 }

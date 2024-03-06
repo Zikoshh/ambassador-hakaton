@@ -57,7 +57,8 @@ export default function EnhancedTableHead(props) {
                             fontWeight: '500',
                             fontSize: '14px',
                             lineHeight: '22px',
-                            paddingLeft: '16px'
+                            paddingLeft: '16px',
+                            height: '48px',
                         }}
                     >
                         <TableSortLabel

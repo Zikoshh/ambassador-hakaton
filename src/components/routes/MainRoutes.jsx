@@ -4,6 +4,7 @@
 import MainLayout from '../layout/MainLayout/MainLayout';
 import ContentsTable from '../Contents/Contents';
 //const AuthLogin = Loadable(lazy(() => import('../Login/Login')));
+import Profiles from '../Profiles/Profiles';
 
 const MainRoutes = {
   path: '/',
@@ -15,7 +16,7 @@ const MainRoutes = {
     },
     {
       path: 'profiles',
-      element: <p>Страница profiles</p>
+      element: <p>Профили</p>
     },
     {
       path: 'content',
@@ -36,6 +37,10 @@ const MainRoutes = {
     {
       path: 'settings',
       element: <p>Страница settings</p>
+    },
+    {
+      path: 'test',
+      element: <Profiles />
     },
   ]
 };

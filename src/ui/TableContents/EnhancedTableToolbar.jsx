@@ -4,7 +4,7 @@ import { Plus, Magnifier, SlidersVertical, BarsDescendingAlignCenter, LayoutColu
 import ActionButton from '../ActionButton/ActionButton';
 import './tableContents.css';
 
-export default function EnhancedTableToolbar({title, textCreatButton}) {
+export default function EnhancedTableToolbar({ title, textCreatButton }) {
     const [name, setName] = useState('');
     console.log('name', name);
 
@@ -21,34 +21,20 @@ export default function EnhancedTableToolbar({title, textCreatButton}) {
         <Box sx={{ paddingBottom: '20px' }}>
             <Toolbar
                 sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
                     border: '1ps solid red'
                 }}
             >
-                <Typography
-                    sx={{
-                        flex: '1 1 100%',
-                        fontFamily: 'Inter',
-                        fontSize: '34px',
-                        fontWeight: '500',
-                        lineHeight: '40px'
-                    }}
-                    variant="h1"
-                    id="tableTitle"
-                    component="div"
-                >
+                <Typography variant="h2" id="tableTitle">
                     {title}
                 </Typography>
                 <Button
                     sx={{
-                        backgroundColor: '#625DF5',
                         color: '#FCFCFC',
                         width: '200px',
                         height: '40px',
                         borderRadius: '999px',
-                        textTransform: 'none',
-                        fontFamily: 'Inter',
-                        fontSize: '14px',
-                        lineHeight: '22px',
                         '&:hover': {
                             backgroundColor: '#342DF2'
                         }
@@ -79,9 +65,8 @@ export default function EnhancedTableToolbar({title, textCreatButton}) {
                         sx={{
                             width: '300px',
                             color: '#ABABAB',
-                            fontFamily: 'Inter',
                             fontWeight: '400',
-                            fontSize: '14px',
+                            fontSize: '1.4em',
                             lineHeight: '22px',
                             border: '1px solid #D5D5D5',
                             borderRadius: '8px',
