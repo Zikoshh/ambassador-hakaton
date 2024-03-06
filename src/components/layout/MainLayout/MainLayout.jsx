@@ -6,7 +6,7 @@ import MenuLeft from '../../MenuMain/MenuLeft';
 const MainLayout = () => {
     return (
         <>
-            <Box sx={{ display: 'flex', width: '1440px', height: '100vh', margin: 'auto', flexDirection: 'column' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', width: '1440px', margin: '0 auto' }}>
                 <Header />
                 <Box sx={{ display: 'flex', width: '1440px', height: '100%', margin: '0' }}>
                     <MenuLeft />

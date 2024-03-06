@@ -1,8 +1,14 @@
 //import { lazy } from 'react';
 
 //import Loadable from '../Loadable';
+import Size from '../Card-Ambassador/MenuAmbassador/Size';
+import ExtraInfo from '../Card-Ambassador/MenuAmbassador/ExtraInfo';
+import Adress from '../Card-Ambassador/MenuAmbassador/Adress';
+import Contacts from '../Card-Ambassador/MenuAmbassador/Cotacts';
 import MainInfo from '../Card-Ambassador/MenuAmbassador/MainInfo';
 import AmbassadorLayout from '../layout/AmbassadorLayout/AmbassadorLayout';
+import Promocodes from '../Card-Ambassador/MenuAmbassador/Promocodes';
+import Tasks from '../Card-Ambassador/MenuAmbassador/Tasks';
 
 //const AuthLogin = Loadable(lazy(() => import('../Login/Login')));
 
@@ -16,27 +22,27 @@ const AmbassadorRoutes = {
         },
         {
             path: 'adress',
-            element: <p>Страница adress</p>
+            element: <Adress />
         },
         {
             path: 'contacts',
-            element: <p>Страница contacts</p>
+            element: <Contacts />
         },
         {
             path: 'extraInfo',
-            element: <p>Страница extraInfo</p>
+            element: <ExtraInfo />
         },
         {
             path: 'size',
-            element: <p>Страница size</p>
+            element: <Size />
         },
         {
             path: 'promocodes',
-            element: <p>Страница promocodes</p>
+            element: <Promocodes />
         },
         {
             path: 'ambassador_tasks',
-            element: <p>Страница tasks</p>
+            element: <Tasks />
         }
     ]
 };
