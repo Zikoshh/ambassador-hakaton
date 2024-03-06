@@ -10,7 +10,6 @@ const AmbassadorLayout = () => {
             sx={{
                 display: 'flex',
                 width: '668px',
-
                 margin: '20px auto 0px',
                 flexDirection: 'column',
                 borderRadius: '8px',
