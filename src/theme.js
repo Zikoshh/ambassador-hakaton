@@ -52,7 +52,7 @@ const theme = createTheme(
         typography: {
             //можно написать название темы и после настройки
             fontFamily: 'Inter',
-            fontSize: '14px',
+            fontSize: 14,
             fontWeightLight: 300,
             fontWeightRegular: 400,
             fontWeightMedium: 500,
@@ -61,28 +61,27 @@ const theme = createTheme(
                 color: '#212121',
                 fontWeight: 400,
                 lineHeight: '22px',
-                fontSize: '14px',
+                fontSize: 14,
             },
 
             h1: {
-                fontSize: '16px'
+                fontSize: 16
             },
             h2: {
-                fontSize: '34px',
+                fontSize: 34,
                 lineHeight: '40px',
                 fontWeight: 500
             },
             button: {
                 color: '#625DF5',
                 backgroundColor: '#625DF5', // заменить на переменную
-                fontSize: '14px',
+                fontSize: 14,
                 lineHeight: '22px',
                 textTransform: 'none'
             },
             input: {
-                fontSize: '12px',
-            }
-    
+                fontSize: 12,
+            }    
         },
         components: {
             MuiCssBaseline: {

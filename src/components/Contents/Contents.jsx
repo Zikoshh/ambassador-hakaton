@@ -7,22 +7,16 @@ import {
     TableContainer,
     TablePagination,
     TableRow,
-    Paper,
     Checkbox,
-    FormControlLabel,
-    Switch,
     Button,
     Icon,
     Select,
     MenuItem,
     Link,
     FormControl,
-    TextField,
-    InputAdornment,
+    OutlinedInput,
     IconButton,
     InputBase,
-    Autocomplete,
-    Stack,
     Typography
 } from '@mui/material/';
 
@@ -38,14 +32,7 @@ import EnhancedTableToolbar from '../../ui/TableContents/EnhancedTableToolbar';
 import EnhancedTableHead from '../../ui/TableContents/EnhancedTableHead';
 import CheckboxFortable from '../../ui/CheckboxForTable/CheckboxForTable';
 import SelectForTable from '../../ui/SelectForTable/SelectForTable';
-import { DisabledByDefault } from '@mui/icons-material';
 import './style.css';
-
-const top100Films = [
-    { title: '28', year: 1994 },
-    { title: '14', year: 1972 },
-    { title: '15625', year: 1974 }
-];
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -87,8 +74,8 @@ export default function ContentsTable() {
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
-    const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [personName, setPersonName] = React.useState([]); //замени для поля № задач
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -130,10 +117,6 @@ export default function ContentsTable() {
         setPage(0);
     };
 
-    const handleChangeDense = (event) => {
-        setDense(event.target.checked);
-    };
-
     //мое
     const handleClickGaid = (evt) => {
         console.log(`gaid = ${evt.target.checked}`);
@@ -158,8 +141,7 @@ export default function ContentsTable() {
         color: '#212121'
     };
 
-    // мое
-    const [valuePlatform, setValuePlatform] = React.useState('');
+    const temp_tasks = [12, 15, 12456];
 
     // TODO: сделать полосу прокрутки в блоке только
     return (
@@ -229,16 +211,13 @@ export default function ContentsTable() {
                                     <TableCell scope="row">
                                         <FormControl fullWidth>
                                             <SelectForTable
-                                                value={valuePlatform} //исправить
+                                                value={row.status_profile} //исправить
                                                 displayEmpty
                                                 onChange={(evt) => console.log('platform = ', evt.target.value)}
                                             >
-                                                <MenuItem value="">
-                                                    <em>{row.status_profile}</em>
-                                                </MenuItem>
-                                                <MenuItem value={'Активный'}>Активный</MenuItem>
-                                                <MenuItem value={'Не определен'}>Не определен</MenuItem>
-                                                <MenuItem value={'Уточняется'}>Уточняется</MenuItem>
+                                                <MenuItem value="Активный">Активный</MenuItem>
+                                                <MenuItem value="Не определен">Не определен</MenuItem>
+                                                <MenuItem value="Уточняется">Уточняется</MenuItem>
                                             </SelectForTable>
                                         </FormControl>
                                     </TableCell>
@@ -251,16 +230,13 @@ export default function ContentsTable() {
                                     <TableCell scope="row">
                                         <FormControl fullWidth>
                                             <SelectForTable
-                                                value={valuePlatform} //исправить
+                                                value={row.platform} //исправить
                                                 displayEmpty
                                                 onChange={(evt) => console.log('platform = ', evt.target.value)}
                                             >
-                                                <MenuItem value="">
-                                                    <em>{row.platform}</em>
-                                                </MenuItem>
-                                                <MenuItem value={'Habr'}>Habr</MenuItem>
-                                                <MenuItem value={'YouTube'}>YouTube11111111111111111</MenuItem>
-                                                <MenuItem value={'VK'}>VK</MenuItem>
+                                                <MenuItem value="Habr">Habr</MenuItem>
+                                                <MenuItem value="YouTube">YouTube</MenuItem>
+                                                <MenuItem value="VK">VK</MenuItem>
                                             </SelectForTable>
                                         </FormControl>
                                     </TableCell>
@@ -387,7 +363,72 @@ export default function ContentsTable() {
                                     <TableCell scope="row">
                                         <Typography sx={{ color: '#6B6872', width: '100px' }}>{row.number_form}</Typography>
                                     </TableCell>
-                                    <TableCell scope="row" >
+                                    <TableCell scope="row">
+                                        <FormControl sx={{ m: 1, width: 300 }}>
+                                            <Select
+                                                id={`number_tasks_select${row.id}`}
+                                                value={personName}
+                                                onChange={(evt) => setPersonName(evt.target.value)}
+                                                input={<OutlinedInput id={`number_tasks_input${row.id}`} />}
+                                                renderValue={(selected) => (
+                                                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                                                        <Chip
+                                                            key={selected}
+                                                            label={selected}
+                                                            onClick={() => console.log(selected)}
+                                                            sx={{
+                                                                backgroundColor: '#FBF9FF',
+                                                                border: '1px solid #E1E1F7',
+                                                                borderRadius: '8px',
+                                                                width: '56px',
+                                                                height: '26px',
+                                                                fontSize: '14px'
+                                                            }}
+                                                        />
+                                                    </Box>
+                                                )}
+                                                MenuProps={{
+                                                    PaperProps: {
+                                                        style: {
+                                                            maxHeight: 200,
+                                                            width: 152
+                                                        }
+                                                    }
+                                                }}
+                                                sx={{
+                                                    width: '152px',
+                                                    height: '28px',
+                                                    fontSize: '14px'
+                                                }}
+                                            >
+                                                <MenuItem value="12">12</MenuItem>
+                                                <MenuItem value="13">13</MenuItem>
+                                                <MenuItem value="14">14</MenuItem>
+                                            </Select>
+                                        </FormControl>
+                                    </TableCell>
+                                </TableRow>
+                            );
+                        })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            <TablePagination
+                rowsPerPageOptions={[5, 10, 25]}
+                component="div"
+                count={data_contents.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+        </Box>
+    );
+}
+
+/*
+
+<TableCell scope="row" >
                                             <Autocomplete
                                                 multiple
                                                 limitTags='1'
@@ -410,21 +451,5 @@ export default function ContentsTable() {
                                                 )}
                                             />
                                     </TableCell>
-                                </TableRow>
-                            );
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
-                component="div"
-                count={data_contents.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-        </Box>
-    );
-}
+
+                                    */

@@ -9,12 +9,12 @@ for (let i = 0; i < 15; i++) {
         status_profile: `${Math.random() * 10 <= 5 ? 'Уточняется' : 'Активный'}`,
         gaid: Math.random() * 10 <= 5 ? true : false,
         tasks: Math.random() * 10 <= 5 ? true : false,
-        platform: `${Math.random() * 10 <= 5 ? 'Habr1' : 'YouTube222'}`,
+        platform: `${Math.random() * 10 <= 5 ? 'Habr' : 'YouTube'}`,
         content: `https://content.ru/${Math.random() * 10 <= 5 ? 'Habr' : 'YouTube'}`,
         file: 'https://file.ru/',
         send_merch: '',
-        number_form: Math.random() * 10 <= 5 ? 12 : 28,
-        number_task: Math.random() * 10 <= 5 ? 56 : 89
+        number_form: Math.random() * 10 <= 5 ? '12' : '28',
+        number_task: Math.random() * 10 <= 5 ? '56' : '89'
     };
 }
 
