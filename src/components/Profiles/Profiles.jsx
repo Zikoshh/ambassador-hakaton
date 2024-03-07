@@ -7,7 +7,7 @@ const Profiles = () => {
     let navigate = useNavigate(); // навигация в react v6
 
     const handleClickAddProfile = () => {
-        navigate('/mainInfo');
+        navigate('/newCard__page1');
     };
     return (
         <>
