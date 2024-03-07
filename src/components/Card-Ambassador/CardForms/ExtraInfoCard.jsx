@@ -21,6 +21,8 @@ const options2 = [
 
 const ExtraInfoCard = () => {
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [customOptionText, setCustomOptionText] = useState('');
 
     const handleSave = (e) => {
         e.preventDefault();
@@ -29,6 +31,13 @@ const ExtraInfoCard = () => {
         setTimeout(() => {
             setShowSuccessPopup(false);
         }, 3000);
+    };
+
+    const handleSelectChange = (selected) => {
+        setSelectedOption(selected);
+        if (selected.value === 'custom') {
+            setCustomOptionText('');
+        }
     };
 
     return (
@@ -78,6 +87,7 @@ const ExtraInfoCard = () => {
                 className="cardForm__box"
                 placeholder="Выберите из списка"
                 options={options1}
+                onChange={handleSelectChange}
                 styles={{
                     placeholder: (baseStyles) => ({
                         ...baseStyles,
@@ -89,6 +99,9 @@ const ExtraInfoCard = () => {
                     })
                 }}
             />
+            {selectedOption && selectedOption.value === 'custom' && (
+                <input type="text" value={customOptionText} onChange={(e) => setCustomOptionText(e.target.value)} />
+            )}
             <InputLabel
                 sx={{
                     color: 'rgb(0, 0, 0)',
