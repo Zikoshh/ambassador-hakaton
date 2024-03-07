@@ -1,0 +1,39 @@
+.cardForm__input-contact {
+    width: 336px;
+    height: 36px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    border: 1px solid rgba(99, 98, 98, 0.3);
+    outline: none;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.cardForm__input-contact:last-of-type {
+    margin-bottom: 0px;
+}
+
+.cardForm__input-contact::placeholder {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.cardForm__box:last-of-type {
+    margin-bottom: 0px;
+}
+
+.cardForm__buttons.contacts {
+    margin: 165px 0px 0px;
+}

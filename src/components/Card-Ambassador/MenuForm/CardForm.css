@@ -1,0 +1,179 @@
+.box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardForm {
+    font-family: 'Inter';
+    display: flex;
+    flex-direction: column;
+    width: 336px;
+    margin-top: 13px;
+}
+
+.cardForm__label {
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+}
+
+.cardForm__input {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 7px 12px;
+    margin-bottom: 4px;
+    width: 336px;
+    height: 36px;
+    box-sizing: border-box;
+    border: 1px solid rgba(99, 98, 98, 0.3);
+    transition: border-color 0.3s;
+    outline: none;
+    border-radius: 10px;
+    background: transparent;
+    &:focus {
+        outline: none;
+        border-color: rgba(98, 93, 245, 1);
+    }
+}
+
+.cardForm__input:last-of-type {
+    margin-bottom: 0px;
+}
+
+.cardForm__input::placeholder {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.cardForm__box {
+    position: relative;
+    background: transparent;
+    margin-bottom: 16px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    appearance: none;
+    border-radius: 8px;
+    border-color: rgba(98, 93, 245, 1);
+}
+.cardForm__box::placeholder {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(171, 171, 171, 1);
+}
+
+.cardForm__box:last-of-type {
+    margin-bottom: 0px;
+}
+
+/* .cardForm__chevronIcon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(99, 98, 98, 0.3);
+} */
+
+.checkbox-name {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgb(33, 33, 33);
+    margin-left: 8px;
+}
+
+.cardForm__buttons {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    padding: 0px 0px 40px;
+    margin: 40px 0px 0px;
+    border-bottom-right-radius: '8px';
+}
+
+.cardForm__button-confirm {
+    width: 160px;
+    height: 36px;
+    background: rgba(98, 93, 245, 1);
+    border-radius: 999px;
+    border: none;
+    color: rgb(252, 252, 252);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: center;
+    cursor: pointer;
+}
+.cardForm__button-cancel {
+    width: 160px;
+    height: 36px;
+    background: rgb(255, 255, 255);
+    border-radius: 999px;
+    border: 1px solid rgb(195, 195, 201);
+    color: rgb(33, 33, 33);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.successPopup {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 216px;
+    padding: 13px 16px;
+    background-color: rgba(209, 249, 238, 1);
+    color: rgba(54, 196, 160, 1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.successPopup__icon {
+    width: 20px;
+    height: 20px;
+    background-image: url(../../../img/message_icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+.successPopup__text {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+}
