@@ -9,7 +9,7 @@
 }
 
 .email__container {
-    width: 336px;
+    width: 432px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -41,10 +41,8 @@
 }
 
 .email__form {
-    position: relative;
     display: flex;
     flex-direction: column;
-    width: 336px;
 }
 
 .email__error {

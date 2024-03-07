@@ -4,7 +4,7 @@ import { Plus, Magnifier, SlidersVertical, BarsDescendingAlignCenter, LayoutColu
 import ActionButton from '../ActionButton/ActionButton';
 import './tableContents.css';
 
-export default function EnhancedTableToolbar({ title, textCreatButton }) {
+export default function EnhancedTableToolbar({ title, textCreatButton, onClickAdd }) {
     const [name, setName] = useState('');
     console.log('name', name);
 
@@ -30,6 +30,7 @@ export default function EnhancedTableToolbar({ title, textCreatButton }) {
                     {title}
                 </Typography>
                 <Button
+                    onClick={onClickAdd}
                     sx={{
                         color: '#FCFCFC',
                         width: '200px',

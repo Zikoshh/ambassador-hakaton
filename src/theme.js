@@ -57,6 +57,12 @@ const theme = createTheme(
             fontWeightRegular: 400,
             fontWeightMedium: 500,
             fontWeightBold: 600,
+            body: {
+                color: '#212121',
+                fontWeight: 400,
+                lineHeight: '22px',
+                fontSize: 14,
+            },
             body1: {
                 color: '#212121',
                 fontWeight: 400,
