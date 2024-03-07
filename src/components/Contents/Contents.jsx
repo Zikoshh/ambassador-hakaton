@@ -5,7 +5,6 @@ import {
     TableBody,
     TableCell,
     TableContainer,
-    TablePagination,
     TableRow,
     Checkbox,
     Button,
@@ -17,7 +16,9 @@ import {
     OutlinedInput,
     IconButton,
     InputBase,
-    Typography
+    Typography,
+    Stack,
+    Pagination
 } from '@mui/material/';
 
 import Chip from '@mui/material/Chip';
@@ -32,7 +33,6 @@ import EnhancedTableToolbar from '../../ui/TableContents/EnhancedTableToolbar';
 import EnhancedTableHead from '../../ui/TableContents/EnhancedTableHead';
 import CheckboxFortable from '../../ui/CheckboxForTable/CheckboxForTable';
 import SelectForTable from '../../ui/SelectForTable/SelectForTable';
-import './style.css';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -64,17 +64,13 @@ function stableSort(array, comparator) {
     return stabilizedThis.map((el) => el[0]);
 }
 
-/*
-EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-};*/
-
 export default function ContentsTable() {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const rowsPerPageOptions = [5, 10, 20, 50, 100];
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -111,12 +107,6 @@ export default function ContentsTable() {
         setPage(newPage);
     };
 
-    const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(parseInt(event.target.value, 10));
-        setPage(0);
-    };
-
-    //мое
     const handleClickGaid = (evt) => {
         console.log(`gaid = ${evt.target.checked}`);
     };
@@ -132,19 +122,8 @@ export default function ContentsTable() {
         [order, orderBy, page, rowsPerPage]
     );
 
-    const styleCell = {
-        fontFamily: 'Inter',
-        fontWeight: '400',
-        fontSize: '14px',
-        lineHeight: '22px',
-        color: '#212121'
-    };
-
-    const temp_tasks = [12, 15, 12456];
-
-    // TODO: сделать полосу прокрутки в блоке только
     return (
-        <Box sx={{ width: '100%', mb: 2 }}>
+        <Box sx={{ width: '100%', height: '100%', mb: 2 }}>
             <EnhancedTableToolbar title="Контент" textCreatButton="Создать форму" />
             <TableContainer>
                 <Table aria-labelledby="tableTitle" size="small">
@@ -170,12 +149,17 @@ export default function ContentsTable() {
                                     selected={isItemSelected}
                                     sx={{ cursor: 'pointer', height: '48px', width: '500px' }}
                                 >
-                                    <TableCell padding="checkbox" align="center" sx={{ padding: '0px', margin: '0px' }}>
+                                    <TableCell
+                                        padding="checkbox"
+                                        align="center"
+                                        sx={{
+                                            minWidth: '46px'
+                                        }}
+                                    >
                                         <Checkbox
                                             color="primary"
                                             checked={isItemSelected}
                                             onClick={(event) => handleClick(event, row.id)}
-                                            sx={{ width: '14px', height: '14px' }}
                                             icon={
                                                 <Icon>
                                                     <img src={checkbox_uncheck_table} />
@@ -189,20 +173,21 @@ export default function ContentsTable() {
                                             inputProps={{
                                                 'aria-labelledby': labelId
                                             }}
+                                            sx={{ width: '14px' }}
                                         />
                                     </TableCell>
                                     <TableCell id={labelId} scope="row">
-                                        <Typography>{row.date}</Typography>
+                                        <Typography sx={{ color: '#6B6872' }}>{row.date}</Typography>
                                     </TableCell>
                                     <TableCell scope="row">
-                                        <Typography sx={{ width: 'max-content' }}>{row.fio}</Typography>
+                                        <Typography sx={{ width: 'max-content', color: '#212121' }}>{row.fio}</Typography>
                                     </TableCell>
-                                    <TableCell scope="row" sx={{ ...styleCell, color: '#6B6872' }}>
+                                    <TableCell scope="row">
                                         <Link
                                             href={`https://t.me/${row.telegram}`}
                                             target="_blank"
                                             underline="none"
-                                            sx={{ ...styleCell, color: '#6B6872' }}
+                                            sx={{ color: '#6B6872' }}
                                         >
                                             @{row.telegram}
                                         </Link>
@@ -400,8 +385,8 @@ export default function ContentsTable() {
                                                     fontSize: '14px'
                                                 }}
                                             >
-                                                <MenuItem value='56'>56</MenuItem>
-                                                <MenuItem value='89'>89</MenuItem>
+                                                <MenuItem value="56">56</MenuItem>
+                                                <MenuItem value="89">89</MenuItem>
                                             </Select>
                                         </FormControl>
                                     </TableCell>
@@ -411,43 +396,60 @@ export default function ContentsTable() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
-                component="div"
-                count={data_contents.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
+            <Stack direction="row" justifyContent={'center'} alignItems={'center'} sx={{ marginTop: '20px' }}>
+                <Box display="flex" gap={2} alignItems="center" sx={{ marginRight: '16px' }}>
+                    <Typography sx={{ color: '#6B6872', minWidth: 'max-content' }}>Всего {data_contents.length}</Typography>
+                    <FormControl fullWidth>
+                        <SelectForTable
+                            value={rowsPerPage} //исправить
+                            displayEmpty
+                            onChange={(evt) => setRowsPerPage(evt.target.value)}
+                        >
+                            {rowsPerPageOptions.map((options) => {
+                                return (
+                                    <MenuItem key={options} value={options}>
+                                        {options}/страницу
+                                    </MenuItem>
+                                );
+                            })}
+                        </SelectForTable>
+                    </FormControl>
+                </Box>
+
+                <Pagination
+                    count={data_contents.length / rowsPerPage - 1}
+                    size="small"
+                    variant="outlined"
+                    shape="rounded"
+                    page={page}
+                    onChange={handleChangePage}
+                />
+                <Box
+                    component="form"
+                    display="flex"
+                    gap={1}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                    sx={{ marginLeft: '16px' }}
+                    noValidate
+                    autoComplete="off"
+                    onSubmit={(evt) => {
+                        evt.preventDefault();
+                        setPage(parseInt(page));
+                    }}
+                >
+                    <Typography sx={{ color: '#6B6872', minWidth: 'max-content' }}>Перейти </Typography>
+                    <InputBase
+                        sx={{ width: '56px', height: '28px', border: '1px solid #C3C3C9', borderRadius: '10px' }}
+                        defaultValue={1}
+                        onChange={(evt) => {
+                            const value = evt.target.value;
+                            const quantityPage = data_contents.length / rowsPerPage - 1;
+                            (value > 0) & (value <= quantityPage) ? setPage(parseInt(value), 10) : '';
+                        }}
+                    />
+                </Box>
+            </Stack>
         </Box>
     );
 }
-
-/*
-
-<TableCell scope="row" >
-                                            <Autocomplete
-                                                multiple
-                                                limitTags='1'
-                                                fullWidth
-                                                id="number_tasks"
-                                                size="small"
-                                                options={top100Films}
-                                                openText='test'
-                                                //readOnly
-                                                getOptionLabel={(option) => option.title}
-                                                filterSelectedOptions
-                                                sx={{ height: '28px', minWidth: '170px', width: 'max-content', padding: 0, margin: 0 }}
-                                                renderInput={(params) => (
-                                                    <TextField
-                                                        {...params}
-                                                        variant="outlined"
-                                                        placeholder='test'
-                                                        sx={{ height: '28px', fontSize: '10px', lineHeight: '22px' }}
-                                                    />
-                                                )}
-                                            />
-                                    </TableCell>
-
-                                    */

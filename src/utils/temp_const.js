@@ -1,6 +1,6 @@
 let data_contents = [];
 
-for (let i = 0; i < 15; i++) {
+for (let i = 0; i < 100; i++) {
     data_contents[i] = {
         id: i,
         date: new Date().toLocaleDateString('ru-RU'),

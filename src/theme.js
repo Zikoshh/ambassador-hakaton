@@ -61,7 +61,7 @@ const theme = createTheme(
                 color: '#212121',
                 fontWeight: 400,
                 lineHeight: '22px',
-                fontSize: 14,
+                fontSize: 14
             },
 
             h1: {
@@ -80,18 +80,38 @@ const theme = createTheme(
                 textTransform: 'none'
             },
             input: {
-                fontSize: 12,
-            }    
+                fontSize: 12
+            }
         },
         components: {
             MuiCssBaseline: {
-                //после удалить
-                styleOverrides: (themeParam) => `
-                h1 {
-                  color: ${themeParam.palette.primary.main};    
+                styleOverrides: {
+                    body: {
+                        scrollbarColor: '#EDEDED #ffffff',
+                        '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
+                            backgroundColor: '#ffffff'
+                        },
+                        '&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb': {
+                            borderRadius: 10,
+                            backgroundColor: '#EDEDED',//
+                            minHeight: 8,
+                            border: '3px solid #ffffff' //3
+                        },
+                        '&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus': {
+                            backgroundColor: '#EDEDED' //
+                        },
+                        '&::-webkit-scrollbar-thumb:active, & *::-webkit-scrollbar-thumb:active': {
+                            backgroundColor: '#EDEDED' //
+                        },
+                        '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover': {
+                            backgroundColor: '#EDEDED' //
+                        },
+                        '&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner': {
+                            backgroundColor: '#ffffff'
+                        }
+                    }
                 }
-              `
-            },
+            }
 
             /*MuiButton: {
                 styleOverrides: {

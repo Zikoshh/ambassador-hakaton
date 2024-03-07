@@ -9,7 +9,7 @@ export default function EnhancedTableToolbar({ title, textCreatButton }) {
     console.log('name', name);
 
     function handleSubmit(evt) {
-        console.log('handleSubmit');
+        console.log('handleSubmit', name);
 
         evt.preventDefault();
     }

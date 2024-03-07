@@ -9,9 +9,9 @@ const MainLayout = () => {
             <Box sx={{ width: '1440px', margin: 'auto' }}>
                 <Header />
             </Box>
-            <Box sx={{ display: 'flex', width: '1440px', height: '100%', margin: '0' }}>
+            <Box sx={{ display: 'flex', width: '1440px', height: '100vh', margin: '0' }}>
                 <MenuLeft />
-                <Box sx={{ width: '1192px', border: '1px solid red' }}>
+                <Box sx={{ width: '1192px' }}>
                     <Outlet />
                 </Box>
             </Box>
