@@ -24,7 +24,6 @@ const MenuLeft = () => {
                     justifyContent: 'space-between',
                     width: open ? '248px' : '102px',
                     backgroundColor: '#F7F7F8',
-                    border: '1px solid blue'
                 }}
             >
                 <Box
