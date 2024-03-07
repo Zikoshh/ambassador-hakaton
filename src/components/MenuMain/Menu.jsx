@@ -5,7 +5,6 @@ import Stack from '@mui/material/Stack';
 import MenuButton from '../../ui/MenuButton/MenuButton';
 
 export default function Menu({ open }) {
-    // TODO: сделать активной кнопку при роуте страницы
     return (
         <Stack
             sx={{
@@ -28,10 +27,10 @@ export default function Menu({ open }) {
             <MenuButton LinkComponent={NavLink} to="/tasks" startIcon={<ListCheck />} open={open}>
                 {open ? 'Задачи' : ''}
             </MenuButton>
-            <MenuButton LinkComponent={NavLink} to="/merch"startIcon={<TShirt />} open={open}>
+            <MenuButton LinkComponent={NavLink} to="/merch" startIcon={<TShirt />} open={open}>
                 {open ? 'Мерч' : ''}
             </MenuButton>
-            <MenuButton LinkComponent={NavLink} to="/analytics"sx={{ marginBottom: '20px' }} startIcon={<ChartPie />} open={open}>
+            <MenuButton LinkComponent={NavLink} to="/analytics" sx={{ marginBottom: '20px' }} startIcon={<ChartPie />} open={open}>
                 {open ? 'Аналитика' : ''}
             </MenuButton>
         </Stack>

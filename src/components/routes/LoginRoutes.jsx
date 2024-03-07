@@ -1,6 +1,3 @@
-// import { lazy } from 'react';
-// import Loadable from '../Loadable';
-
 import Email_signin from '../Login/Email/Email_signin';
 import Email_confirmation from '../Registration/Email-confirmation/Email_confirmation.jsx';
 import Email_signup from '../Registration/Email/Email_signup';
@@ -10,10 +7,6 @@ import AuthLayout from '../layout/AuthLayout/AuthLayout';
 import Password_signin from '../Login/Password/Password_signin';
 import Password_restore from '../Login/Password-restore/Password_restore';
 import Login_access from '../Login/Login-access/Login_access.jsx';
-
-// TODO: "../Login/Login" заменить на свой компонент формы авторизации и регистрации
-// const AuthLogin = Loadable(lazy(() => import('../Login/Email/Email_signin.jsx')));
-// const AuthRegister = Loadable(lazy(() => import('../Registration/Email/Email_signup.jsx')));
 
 const LoginRoutes = {
     path: '/',

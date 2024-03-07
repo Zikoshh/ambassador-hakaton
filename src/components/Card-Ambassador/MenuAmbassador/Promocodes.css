@@ -1,0 +1,83 @@
+.password__input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px 4px 3px 12px;
+    margin-bottom: 4px;
+    width: 336px;
+    height: 36px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 10px;
+}
+
+.errorInput {
+    border: 1px solid rgba(251, 57, 57, 1);
+}
+
+.password__input:focus.neutral {
+    border: 1px solid rgb(98, 93, 245);
+}
+.password__input.validInput {
+    border: 1px solid rgb(83, 192, 137);
+}
+
+.password__input-image {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    right: 5px;
+    bottom: 5px;
+    background: url(../../../img/circle-xmark.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.password__input-image.image-shift {
+    right: 30px;
+}
+
+.password__input-imageCorrect {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    right: 5px;
+    bottom: 5px;
+}
+
+.successPopup {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 216px;
+    padding: 13px 16px;
+    background-color: rgba(209, 249, 238, 1);
+    color: rgba(54, 196, 160, 1);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.successPopup__icon {
+    width: 20px;
+    height: 20px;
+    background-image: url(../../../img/message_icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
+
+.successPopup__text {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0px;
+    text-align: left;
+}
