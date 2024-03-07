@@ -16,7 +16,7 @@ const MainRoutes = {
     },
     {
       path: 'profiles',
-      element: <p>Профили</p>
+      element: <Profiles />
     },
     {
       path: 'content',
