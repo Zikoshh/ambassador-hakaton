@@ -1,9 +1,9 @@
-//import { lazy } from 'react';
+import { lazy } from 'react';
 
-//import Loadable from '../Loadable';
+import Loadable from '../Loadable';
 import MainLayout from '../layout/MainLayout/MainLayout';
-import ContentsTable from '../Contents/Contents';
 //const AuthLogin = Loadable(lazy(() => import('../Login/Login')));
+const Contents = Loadable(lazy(() => import('../Contents/Contents')));
 import Profiles from '../Profiles/Profiles';
 
 const MainRoutes = {
@@ -20,7 +20,7 @@ const MainRoutes = {
     },
     {
       path: 'content',
-      element: <ContentsTable />
+      element: <Contents />
     },
     {
       path: 'tasks',
