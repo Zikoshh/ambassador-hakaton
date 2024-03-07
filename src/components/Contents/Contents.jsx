@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+    CssBaseline,
     Box,
     Table,
     TableBody,
@@ -123,6 +124,8 @@ export default function ContentsTable() {
     );
 
     return (
+        <>
+        <CssBaseline />
         <Box sx={{ width: '100%', height: '100%', mb: 2 }}>
             <EnhancedTableToolbar title="Контент" textCreatButton="Создать форму" />
             <TableContainer>
@@ -451,5 +454,7 @@ export default function ContentsTable() {
                 </Box>
             </Stack>
         </Box>
+        </>
+        
     );
 }

@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Header from '../../Header/Header';
-import MenuLeft from '../../Menu/MenuLeft';
 import MenuLeft from '../../MenuMain/MenuLeft';
 
 const MainLayout = () => {

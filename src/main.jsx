@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
-import CssBaseline from '@mui/material/CssBaseline';
+//import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 //import { StyledEngineProvider } from '@mui/material/styles'; // Порядок внедрения CSS
 //import createCache from '@emotion/cache';
@@ -36,7 +36,6 @@ root.render(
     <React.StrictMode>
         <BrowserRouter>
                 <ThemeProvider theme={theme}>
-                    <CssBaseline />
                     <App />
                 </ThemeProvider>
         </BrowserRouter>
