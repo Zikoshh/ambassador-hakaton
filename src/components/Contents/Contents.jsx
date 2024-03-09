@@ -34,7 +34,6 @@ import EnhancedTableHead from '../../ui/Table/EnhancedTableHead';
 
 import { CollumnContents } from '../../utils/constants';
 import data_contents from '../../utils/temp_const';
-import filterArray from '../../utils/filterArray';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
