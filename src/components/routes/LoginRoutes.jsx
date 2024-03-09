@@ -7,14 +7,15 @@ import AuthLayout from '../layout/AuthLayout/AuthLayout';
 import Password_signin from '../Login/Password/Password_signin';
 import Password_restore from '../Login/Password-restore/Password_restore';
 import Login_access from '../Login/Login-access/Login_access.jsx';
+import Login from '../Login/Login.jsx';
 
 const LoginRoutes = {
     path: '/',
     element: <AuthLayout />,
     children: [
         {
-            path: 'signin-email',
-            element: <Email_signin />
+            path: 'signin',
+            element: <Login />
         },
         {
             path: 'signup-email',
