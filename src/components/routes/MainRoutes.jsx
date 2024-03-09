@@ -12,7 +12,7 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <p>Главная страница</p>
+      element: <Profiles />
     },
     {
       path: 'profiles',

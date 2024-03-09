@@ -34,9 +34,6 @@ export default function Menu({ open }) {
             <MenuButton LinkComponent={NavLink} to="/analytics"sx={{ marginBottom: '20px' }} startIcon={<ChartPie />} open={open}>
                 {open ? 'Аналитика' : ''}
             </MenuButton>
-            <MenuButton LinkComponent={NavLink} to="/test"sx={{ marginBottom: '20px' }} startIcon={<ChartPie />} open={open}>
-                {open ? 'Тестовая' : ''}
-            </MenuButton>
         </Stack>
     );
 }
