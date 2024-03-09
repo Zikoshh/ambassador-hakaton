@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import {
     Box,
     Table,
@@ -20,21 +19,22 @@ import {
     InputBase,
     Typography,
     Stack,
-    Pagination
+    Pagination,
+    Chip
 } from '@mui/material/';
 
-import Chip from '@mui/material/Chip';
-
 import { Pencil } from '@gravity-ui/icons';
-
 import checkbox_check_table from '../../img/checkbox_check_table.svg';
 import checkbox_uncheck_table from '../../img/checkbox_uncheck_table.svg';
-import data_contents from '../../utils/temp_const';
-import { CollumnContents } from '../../utils/constants';
-import EnhancedTableToolbar from '../../ui/TableContents/EnhancedTableToolbar';
-import EnhancedTableHead from '../../ui/TableContents/EnhancedTableHead';
 import CheckboxFortable from '../../ui/CheckboxForTable/CheckboxForTable';
 import SelectForTable from '../../ui/SelectForTable/SelectForTable';
+
+import EnhancedTableToolbar from '../../ui/Table/EnhancedTableToolbar';
+import EnhancedTableHead from '../../ui/Table/EnhancedTableHead';
+
+import { CollumnContents } from '../../utils/constants';
+import data_contents from '../../utils/temp_const';
+import filterArray from '../../utils/filterArray';
 
 function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -68,14 +68,13 @@ function stableSort(array, comparator) {
 
 export default function ContentsTable() {
     const [order, setOrder] = React.useState('asc');
-    const [orderBy, setOrderBy] = React.useState('calories');
+    const [orderBy, setOrderBy] = React.useState('date');
     const [selected, setSelected] = React.useState([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const rowsPerPageOptions = [5, 10, 20, 50, 100];
+    const rowsPerPageOptions = [5, 10];
 
     let navigate = useNavigate(); // навигация в react v6
-
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -112,14 +111,6 @@ export default function ContentsTable() {
         setPage(newPage);
     };
 
-    const handleClickGaid = (evt) => {
-        console.log(`gaid = ${evt.target.checked}`);
-    };
-
-    const handleClickTasks = (evt) => {
-        console.log(`tasks = ${evt.target.checked}`);
-    };
-
     const isSelected = (id) => selected.indexOf(id) !== -1;
 
     const visibleRows = React.useMemo(
@@ -127,9 +118,16 @@ export default function ContentsTable() {
         [order, orderBy, page, rowsPerPage]
     );
 
-
     const handleClickAddProfile = () => {
         navigate('/mainInfo');
+    };
+
+    const handleClickGaid = (evt) => {
+        console.log(`gaid = ${evt.target.checked}`);
+    };
+
+    const handleClickTasks = (evt) => {
+        console.log(`tasks = ${evt.target.checked}`);
     };
 
     return (
@@ -145,7 +143,7 @@ export default function ContentsTable() {
                             onSelectAllClick={handleSelectAllClick}
                             onRequestSort={handleRequestSort}
                             rowCount={data_contents.length}
-                            CollumnContents={CollumnContents}
+                            Collumn={CollumnContents}
                         />
                         <TableBody>
                             {visibleRows.map((row, index) => {
@@ -158,6 +156,7 @@ export default function ContentsTable() {
                                         tabIndex={-1}
                                         key={row.id}
                                         selected={isItemSelected}
+                                        onDoubleClick={() => console.log('двойной клик по строке')}
                                         sx={{ cursor: 'pointer', height: '48px', width: '500px' }}
                                     >
                                         <TableCell
@@ -190,7 +189,7 @@ export default function ContentsTable() {
                                         <TableCell id={labelId} scope="row">
                                             <Typography sx={{ color: '#6B6872' }}>{row.date}</Typography>
                                         </TableCell>
-                                        <TableCell scope="row">
+                                        <TableCell scope="row" onDoubleClick={() => console.log('двойной клик')}>
                                             <Typography sx={{ width: 'max-content', color: '#212121' }}>{row.fio}</Typography>
                                         </TableCell>
                                         <TableCell scope="row">

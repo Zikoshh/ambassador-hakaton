@@ -4,7 +4,7 @@ import checkbox_check_table from '../../img/checkbox_check_table.svg';
 import checkbox_uncheck_table from '../../img/checkbox_uncheck_table.svg';
 
 export default function EnhancedTableHead(props) {
-    const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, CollumnContents } = props;
+    const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort, Collumn } = props;
     const createSortHandler = (property) => (event) => {
         onRequestSort(event, property);
     };
@@ -45,7 +45,7 @@ export default function EnhancedTableHead(props) {
                         sx={{ width: '14px' }}
                     />
                 </TableCell>
-                {CollumnContents.map((headCell) => (
+                {Collumn.map((headCell) => (
                     <TableCell
                         key={headCell.id}
                         align="left"

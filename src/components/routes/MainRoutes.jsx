@@ -4,7 +4,7 @@ import { lazy } from 'react';
 import Loadable from '../Loadable';
 import MainLayout from '../layout/MainLayout/MainLayout';
 const Contents = Loadable(lazy(() => import('../Contents/Contents')));
-import Profiles from '../Profiles/Profiles';
+const Profiles = Loadable(lazy(() => import('../Profiles/Profiles')));
 
 const MainRoutes = {
   path: '/',
@@ -37,10 +37,6 @@ const MainRoutes = {
     {
       path: 'settings',
       element: <p>Страница settings</p>
-    },
-    {
-      path: 'test',
-      element: <Profiles />
     },
   ]
 };
