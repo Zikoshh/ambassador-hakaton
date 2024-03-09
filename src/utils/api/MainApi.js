@@ -80,7 +80,7 @@ class Api {
     }
   }
   
-  export const userApi = new Api({
+  export const mainApi = new Api({
     baseUrl: `${window.location.protocol}//185.23.236.87/api/`,
     headers: {
       'Content-Type': 'application/json',

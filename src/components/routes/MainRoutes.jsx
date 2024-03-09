@@ -1,9 +1,9 @@
-//import { lazy } from 'react';
-import ContentsTable from '../Contents/Contents';
+import { lazy } from 'react';
+//import ContentsTable from '../Contents/Contents';
 
-//import Loadable from '../Loadable';
+import Loadable from '../Loadable';
 import MainLayout from '../layout/MainLayout/MainLayout';
-//const Contents = Loadable(lazy(() => import('../Contents/Contents')));
+const Contents = Loadable(lazy(() => import('../Contents/Contents')));
 import Profiles from '../Profiles/Profiles';
 
 const MainRoutes = {
@@ -20,7 +20,7 @@ const MainRoutes = {
     },
     {
       path: 'content',
-      element: <ContentsTable />
+      element: <Contents />
     },
     {
       path: 'tasks',
