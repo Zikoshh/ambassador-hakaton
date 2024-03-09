@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useQuery } from 'react-query';
+//import { useQuery } from 'react-query';
 import {
     Box,
     TableContainer,
@@ -124,6 +124,7 @@ const Profiles = () => {
         console.log(`gaid = ${evt.target.checked}`);
     };
 
+    /*
     const query = useQuery('todos', getTodos);
 
     //call READ hook
@@ -148,7 +149,7 @@ const Profiles = () => {
             }
         });
     }
-
+*/
     return (
         <>
             <Box sx={{ width: '100%', height: '100%', mb: 2 }}>
