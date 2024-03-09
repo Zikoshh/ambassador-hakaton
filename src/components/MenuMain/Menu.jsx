@@ -18,7 +18,7 @@ export default function Menu({ open }) {
             useFlexGap
             spacing={2}
         >
-            <MenuButton LinkComponent={NavLink} to="/profiles" sx={{ marginTop: '20px' }} startIcon={<Persons />} open={open}>
+            <MenuButton LinkComponent={NavLink } to="/profiles" sx={{ marginTop: '20px' }} startIcon={<Persons />} open={open}>
                 {open ? 'Профили' : ''}
             </MenuButton>
             <MenuButton LinkComponent={NavLink} to="/content" startIcon={<Picture />} open={open}>

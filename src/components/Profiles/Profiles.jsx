@@ -1,7 +1,6 @@
 import * as React from 'react';
-
 import { useNavigate } from 'react-router-dom';
-
+import { useQuery } from 'react-query';
 import {
     Box,
     TableContainer,
@@ -124,6 +123,31 @@ const Profiles = () => {
     const handleClickOnbording = (evt) => {
         console.log(`gaid = ${evt.target.checked}`);
     };
+
+    const query = useQuery('todos', getTodos);
+
+    //call READ hook
+    const {
+        data: profiles = [],
+        isError: isErrorProfiles,
+        isFetching: isFetchingProfiles,
+        isLoading: isLoadingProfiles
+    } = useQuery({
+        queryKey: ['upds'],
+        queryFn: () => {
+            return updApi.getUpds();
+        }
+    });
+
+    //READ hook (get users from api)
+    function useGetUpd() {
+        return useQuery({
+            queryKey: ['upds'],
+            queryFn: () => {
+                return updApi.getUpds();
+            }
+        });
+    }
 
     return (
         <>
