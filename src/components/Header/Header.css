@@ -54,13 +54,13 @@
   align-items: flex-start;
   padding: 6px;
   gap: 10px;
-  width: 26px;
-  height: 26px;
+  padding: 0;
   background: #E1E1F7;
   border-radius: 10px;
 }
 
-.header__button_left:hover, .header__button_right:hover{
+.header__button_left:hover,
+.header__button_right:hover {
   cursor: pointer;
 }
 
