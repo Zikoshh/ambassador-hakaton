@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { QueryClientProvider, QueryClient } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { ReactQueryDevtools } from 'react-query/devtools';
 //import { StyledEngineProvider } from '@mui/material/styles'; // Порядок внедрения CSS
 //import createCache from '@emotion/cache';
 //import { CacheProvider } from '@emotion/react';
@@ -12,6 +12,7 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 
 import App from './components/App/App';
 import theme from './theme';
+
 
 const queryClient = new QueryClient();
 
@@ -42,8 +43,8 @@ root.render(
         <BrowserRouter>
             <QueryClientProvider client={queryClient}>
                 <ThemeProvider theme={theme}>
-                    <CssBaseline />
-                    <App />
+                        <CssBaseline />
+                        <App />
                 </ThemeProvider>
                 <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
