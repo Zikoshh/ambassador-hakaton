@@ -53,7 +53,7 @@
   margin-right: 36px;
 }
 
-.account-popup__header-image:hover{
+.account-popup__header-image:hover {
   cursor: pointer;
 }
 
@@ -185,7 +185,7 @@
   margin-top: 36px;
 }
 
-.account-form__button_disabled{
+.account-form__button_disabled {
   display: none;
 }
 
@@ -198,7 +198,7 @@
   flex-direction: column;
 }
 
-.account-form__button-change-save{
+.account-form__button-change-save {
   display: flex;
   flex-direction: row;
   margin-top: 36px;
@@ -206,7 +206,7 @@
   margin-bottom: 40px;
 }
 
-.account-form__button-change-save_disabled{
+.account-form__button-change-save_disabled {
   display: none;
 }
 
@@ -260,11 +260,34 @@
   color: #FCFCFC;
 }
 
-.account-form__change-password{
+.account-form__change-password {
   display: none;
   flex-direction: column;
 }
 
-.account-form__change-password_active{
+.account-form__change-password_active {
+  display: flex;
+}
+
+.account-change-save__text {
+  display: none;
+  position: absolute;
+  left: 25%;
+  border: 1px solid red;
+  margin: 0 auto;
+  margin-top: 20px;
+  justify-content: center;
+  width: 216px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 13px 16px;
+  gap: 8px;
+  height: 48px;
+  background: #D1F9EE;
+  border: 1px solid #D1F9EE;
+  border-radius: 20px;
+}
+
+.account-change-save__text_active{
   display: flex;
 }
