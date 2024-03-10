@@ -1,10 +1,10 @@
-//import { lazy } from 'react';
-import ContentsTable from '../Contents/Contents';
+import { lazy } from 'react';
+//import ContentsTable from '../Contents/Contents';
 
-//import Loadable from '../Loadable';
+import Loadable from '../Loadable';
 import MainLayout from '../layout/MainLayout/MainLayout';
-//const Contents = Loadable(lazy(() => import('../Contents/Contents')));
-import Profiles from '../Profiles/Profiles';
+const Contents = Loadable(lazy(() => import('../Contents/Contents')));
+const Profiles = Loadable(lazy(() => import('../Profiles/Profiles')));
 
 const MainRoutes = {
   path: '/',
@@ -12,7 +12,7 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <p>Главная страница</p>
+      element: <Profiles />
     },
     {
       path: 'profiles',
@@ -20,7 +20,7 @@ const MainRoutes = {
     },
     {
       path: 'content',
-      element: <ContentsTable />
+      element: <Contents />
     },
     {
       path: 'tasks',
@@ -37,10 +37,6 @@ const MainRoutes = {
     {
       path: 'settings',
       element: <p>Страница settings</p>
-    },
-    {
-      path: 'test',
-      element: <Profiles />
     },
   ]
 };

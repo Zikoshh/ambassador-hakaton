@@ -34,15 +34,15 @@ class Api {
         return res.ok ? res.json() : res.json().then((err) => Promise.reject(err));
       });
     }
-  
+    
+    // готовый метод
     signin(obj) {
-      return fetch(`${this._baseUrl}signin`, {
+      return fetch(`${this._baseUrl}login/`, {
         method: 'POST',
         headers: this._headers,
         body: JSON.stringify({
           password: obj.password,
           email: obj.email,
-          checked: obj.checked
         }),
         credentials: 'include'
       }).then((res) => {
@@ -80,7 +80,7 @@ class Api {
     }
   }
   
-  export const mainApi = new Api({
+  export const userApi = new Api({
     baseUrl: `${window.location.protocol}//185.23.236.87/api/`,
     headers: {
       'Content-Type': 'application/json',

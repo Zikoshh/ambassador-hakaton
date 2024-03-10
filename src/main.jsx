@@ -3,6 +3,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools'
 //import { StyledEngineProvider } from '@mui/material/styles'; // Порядок внедрения CSS
 //import createCache from '@emotion/cache';
 //import { CacheProvider } from '@emotion/react';
@@ -10,6 +12,9 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import App from './components/App/App';
 import theme from './theme';
+
+const queryClient = new QueryClient();
+
 const root = createRoot(document.getElementById('root'));
 //const inputGlobalStyles = <GlobalStyles styles={{ div: { color: 'red' } }} />;
 // вставыить перед App
@@ -35,10 +40,13 @@ const root = createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <App />
-            </ThemeProvider>
+            <QueryClientProvider client={queryClient}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <App />
+                </ThemeProvider>
+                <ReactQueryDevtools initialIsOpen={false} />
+            </QueryClientProvider>
         </BrowserRouter>
     </React.StrictMode>
 );

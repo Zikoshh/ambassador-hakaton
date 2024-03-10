@@ -5,7 +5,7 @@ import './Email_signin.css';
 const Email_signin = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-
+  console.log('email', email);
   const [emailValid, setEmailValid] = useState(true);
 
   const clearEmail = () => {

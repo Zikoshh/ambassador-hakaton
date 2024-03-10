@@ -18,7 +18,7 @@ export default function Menu({ open }) {
             useFlexGap
             spacing={2}
         >
-            <MenuButton LinkComponent={NavLink} to="/profiles" sx={{ marginTop: '20px' }} startIcon={<Persons />} open={open}>
+            <MenuButton LinkComponent={NavLink } to="/profiles" sx={{ marginTop: '20px' }} startIcon={<Persons />} open={open}>
                 {open ? 'Профили' : ''}
             </MenuButton>
             <MenuButton LinkComponent={NavLink} to="/content" startIcon={<Picture />} open={open}>
@@ -32,9 +32,6 @@ export default function Menu({ open }) {
             </MenuButton>
             <MenuButton LinkComponent={NavLink} to="/analytics" sx={{ marginBottom: '20px' }} startIcon={<ChartPie />} open={open}>
                 {open ? 'Аналитика' : ''}
-            </MenuButton>
-            <MenuButton LinkComponent={NavLink} to="/test" sx={{ marginBottom: '20px' }} startIcon={<ChartPie />} open={open}>
-                {open ? 'Тест' : ''}
             </MenuButton>
         </Stack>
     );
