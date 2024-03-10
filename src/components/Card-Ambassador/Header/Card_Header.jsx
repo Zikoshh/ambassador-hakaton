@@ -3,7 +3,7 @@ import { Box, Button, Dialog, DialogActions, DialogTitle } from '@mui/material';
 import './Card_Header.css';
 import { Xmark } from '@gravity-ui/icons';
 
-const Card_Header = () => {
+const Card_Header = ({ handleCloseModal }) => {
     const [openDialog, setOpenDialog] = useState(false);
 
     const handleClickDelete = () => {
@@ -15,7 +15,6 @@ const Card_Header = () => {
     };
 
     const handleDeleteCard = () => {
-        // Действия по удалению карточки
         setOpenDialog(false);
     };
 
@@ -108,7 +107,10 @@ const Card_Header = () => {
                         Отмена
                     </Button>
                     <Button
-                        onClick={handleDeleteCard}
+                        onClick={() => {
+                            handleDeleteCard();
+                            handleCloseModal();
+                        }}
                         sx={{
                             background: 'rgba(98, 93, 245, 1)',
                             color: 'rgba(252, 252, 252, 1)',

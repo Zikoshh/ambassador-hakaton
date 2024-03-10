@@ -28,7 +28,7 @@ const Tasks = ({ onClose, onBack }) => {
                         border: '1px solid rgb(195, 195, 201)'
                     }}
                 >
-                    <CardHeader />
+                    <CardHeader handleCloseModal={onClose} />
                     <Box
                         sx={{
                             fontFamily: ('Inter', 'Arial', 'sans-serif'),

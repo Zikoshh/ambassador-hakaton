@@ -5,7 +5,7 @@ import AddressCard from '../CardForms/AddressCard';
 import CardHeader from '../Header/CardHeader';
 import './Address.css';
 
-const Address = ({ onNext, onBack }) => {
+const Address = ({ onNext, onBack, onClose }) => {
     const handleNext = () => {
         onNext();
     };
@@ -29,7 +29,7 @@ const Address = ({ onNext, onBack }) => {
                         border: '1px solid rgb(195, 195, 201)'
                     }}
                 >
-                    <CardHeader />
+                    <CardHeader handleCloseModal={onClose} />
                     <Box
                         sx={{
                             fontFamily: ('Inter', 'Arial', 'sans-serif'),

@@ -6,7 +6,7 @@ import CardHeader from '../Header/CardHeader';
 import MainInfoCard from '../CardForms/MainInfoCard';
 import './MainInfo.css';
 
-const MainInfo = ({ onNext, onBack }) => {
+const MainInfo = ({ onNext, onBack, onClose }) => {
     const handleNext = () => {
         onNext();
     };
@@ -43,7 +43,7 @@ const MainInfo = ({ onNext, onBack }) => {
                         border: '1px solid rgb(195, 195, 201)'
                     }}
                 >
-                    <CardHeader />
+                    <CardHeader handleCloseModal={onClose} />
                     <Box
                         sx={{
                             fontFamily: ('Inter', 'Arial', 'sans-serif'),
