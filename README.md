@@ -33,12 +33,12 @@ CRM Hakaton
 * Модуль задач
 
 ## Доступ ##
-* [Адрес сайта: https://http://185.23.236.21/](https://http://185.23.236.21/)
+* [Адрес сайта: https://http://185.23.236.21/](http://185.23.236.21/)
 
 # Инструкция по запуску, разработке и сборке
 
 ## Подготовка рабочего места:
-1. Скачать и установить node js версии 21.*.* [по ссылке https://nodejs.org/en](https://nodejs.org/en).
+1. Скачать и установить node js версии 21.x.x  [по ссылке https://nodejs.org/en](https://nodejs.org/en).
 2. Скачать и установить Visual Studio Code [по ссылке https://code.visualstudio.com/](https://code.visualstudio.com/).
 3. В Visual Studio Code установить плагины: 
 * ESLint
@@ -65,6 +65,3 @@ npm run dev
 npm run build
 ```
 2. В папке dist соберется рабочий пакет веб-приложения, который можно размещать на удаленном ресурсе.
-
-
-git@github.com:levinnsk/ambassador-hakaton.git
