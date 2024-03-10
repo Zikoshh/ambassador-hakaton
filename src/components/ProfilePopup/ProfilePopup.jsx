@@ -3,7 +3,7 @@ import React from 'react';
 import profileImage from '../../assets/logo.svg';
 import ProfileOutPopup from '../ProfileOutPopup/ProfileOutPopup';
 import ProfilePopupAccount from '../ProfilePopupAccount/ProfilePopupAccount';
-import { CurrentUserContext } from '../Contexts/CurrentUserContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export default function ProfilePopup({ isOpen, isOpenOutPopup, handleProfileOutClick, handleAllPopupClose, 
   handleProfileAccountClick, isProfilePopupAccount }) {

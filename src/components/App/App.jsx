@@ -21,8 +21,8 @@ const App = () => {
             })
             .catch((err) => {
               console.log(err);
-              setIsLoggedIn(false);
-              navigate('/login')
+              setIsLoggedIn(true);
+              navigate('/')
             });
         }
       }, [isLoggedIn]);
