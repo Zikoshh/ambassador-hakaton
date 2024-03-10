@@ -28,7 +28,7 @@ export default function ProfilePopupAccount({ isProfilePopupAccount, handleAllPo
                     <button className="account-form__button">Сменить пароль</button>
                     <div className="account-form__buttons">
                         <button className="account-form__button-reset">Сменить пароль</button>
-                        <button className="account-form__button-save">Сохранить</button>
+                        <button className="account-form__button-save">Сохранить</button>  
                     </div>
                 </form>
             </div>
