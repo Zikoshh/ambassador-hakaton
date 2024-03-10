@@ -1,4 +1,6 @@
 import React from 'react';
+import { lazy } from 'react';
+
 import { BrowserRouter } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,10 +11,11 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 //import createCache from '@emotion/cache';
 //import { CacheProvider } from '@emotion/react';
 //import GlobalStyles from '@mui/material/GlobalStyles';
-
-import App from './components/App/App';
+import Loadable from './components/Loadable';
+//import App from './components/App/App';
 import theme from './theme';
 
+const AppLoad = Loadable(lazy(() => import('./components/App/App')));
 
 const queryClient = new QueryClient();
 
@@ -44,7 +47,7 @@ root.render(
             <QueryClientProvider client={queryClient}>
                 <ThemeProvider theme={theme}>
                         <CssBaseline />
-                        <App />
+                        <AppLoad />
                 </ThemeProvider>
                 <ReactQueryDevtools initialIsOpen={false} />
             </QueryClientProvider>
