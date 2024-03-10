@@ -5,7 +5,6 @@
   padding: 0px;
   position: absolute;
   width: 416px;
-  height: 540px;
   filter: drop-shadow(0px 4px 36px rgba(43, 41, 116, 0.12));
   border-radius: 20px;
   z-index: 2;
@@ -128,7 +127,6 @@
 
 .account-form__input-name {
   margin: 0;
-  width: 29px;
   height: 22px;
   font-family: 'Inter';
   font-style: normal;
@@ -196,6 +194,7 @@
   flex-direction: row;
   margin-top: 36px;
   justify-content: space-between;
+  margin-bottom: 40px;
 }
 
 .account-form__button-reset {
@@ -246,4 +245,13 @@
   line-height: 22px;
   text-align: center;
   color: #FCFCFC;
+}
+
+.account-form__change-password{
+  display: none;
+  flex-direction: column;
+}
+
+.account-form__change-password_active{
+  display: flex;
 }
