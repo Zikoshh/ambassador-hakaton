@@ -1,21 +1,43 @@
 import Routes from '../routes';
-import { CurrentUserContext } from '../Contexts/CurrentUserContext';
-import { useState, useEffect } from 'react';
-import mainApi from '../../utils/api/MainApi';
-
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect} from 'react';
+import { AppContext } from '../../contexts/AppContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { userApi } from '../../utils/api/UserApi';
 const App = () => {
-    const [currentUser, setCurrentUser] = useState({});
+    const [isLoggedIn, setIsLoggedIn] = useState(true); // состояние авторизации
+    console.log('isLoggedIn=', isLoggedIn);
+    const [isCurrentUser, setCurrentUser] = useState({}); // данные текущего пользователя
+    console.log('isCurrentUser=', isCurrentUser);
+  const navigate = useNavigate();
+
+
     useEffect(() => {
-        mainApi.getUser()
-          .then((res) => {
-            setCurrentUser(res);
-          })
-          .catch(console.error)
-      }, [])
+        if (isLoggedIn) {
+          userApi
+            .getUserMe()
+            .then((user) => {
+              setCurrentUser(user);
+            })
+            .catch((err) => {
+              console.log(err);
+              setIsLoggedIn(false);
+              navigate('/login')
+            });
+        }
+      }, [isLoggedIn]);
+
     return (
-        <CurrentUserContext.Provider value={currentUser}>
-            <Routes />
-        </CurrentUserContext.Provider>
+        <AppContext.Provider
+            value={{
+                isLoggedIn,
+                setIsLoggedIn
+            }}
+        >
+            <CurrentUserContext.Provider value={{ isCurrentUser, setCurrentUser }}>
+                <Routes />
+            </CurrentUserContext.Provider>
+        </AppContext.Provider>
     );
 };
 
