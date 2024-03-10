@@ -5,6 +5,7 @@ import mainApi from '../../utils/api/MainApi';
 
 const App = () => {
     const [currentUser, setCurrentUser] = useState({});
+    const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
         mainApi.getUser()
