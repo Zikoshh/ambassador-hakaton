@@ -17,7 +17,7 @@ class Api {
       //загрузка данных о пользователе с сервера
       return fetch(`${this._baseUrl}users/me`, {
         headers: this._headers,
-        credentials: 'include'
+        // credentials: 'include'
       }).then(this._checkResponse);
     }
   }
