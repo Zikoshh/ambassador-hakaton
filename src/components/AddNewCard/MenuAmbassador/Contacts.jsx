@@ -1,10 +1,10 @@
 import { Box, Typography, IconButton } from '@mui/material';
 import { ChevronLeft } from '@gravity-ui/icons';
-import SizeCard from '../CardForms/SizeCard';
+import ContactCard from '../CardForms/ContactCard';
 import CardHeader from '../Header/CardHeader';
-import './Size.css';
+import './Contacts.css';
 
-const Size = ({ onNext, onBack }) => {
+const Contacts = ({ onNext, onBack }) => {
     const handleNext = () => {
         onNext();
     };
@@ -60,12 +60,12 @@ const Size = ({ onNext, onBack }) => {
                                 <IconButton onClick={handleBack}>
                                     <ChevronLeft />
                                 </IconButton>
-                                <p className="mainInfo__text">Размер</p>
+                                <p className="mainInfo__text">Контакты</p>
                             </div>
-                            <p className="mainInfo__steps">Шаг 5/7</p>
+                            <p className="mainInfo__steps">Шаг 3/7</p>
                         </Typography>
-                        <SizeCard />
-                        <div className="cardForm__buttons cardForm__buttons_size">
+                        <ContactCard />
+                        <div className="cardForm__buttons cardForm__buttons_contacts">
                             <button className="cardForm__button-cancel">Сбросить</button>
                             <button
                                 className="cardForm__button-confirm"
@@ -87,4 +87,5 @@ const Size = ({ onNext, onBack }) => {
         </div>
     );
 };
-export default Size;
+
+export default Contacts;

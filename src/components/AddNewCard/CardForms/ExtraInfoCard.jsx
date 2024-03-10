@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import Select from 'react-select';
 import { Box, InputLabel } from '@mui/material';
-import { NavLink } from 'react-router-dom';
-// import { ChevronDown } from '@gravity-ui/icons';
 import './ExtraInfoCard.css';
 
 const options1 = [
@@ -135,48 +133,7 @@ const ExtraInfoCard = () => {
             <Box className="cardForm__box-aboutMe">
                 <textarea placeholder="Добавить" className="cardForm__input-aboutMe"></textarea>
             </Box>
-            <div className="cardForm__buttons extraInfo">
-                <button className="cardForm__button-cancel">Сбросить</button>
-                <NavLink
-                    to="/newCard__page5"
-                    className="cardForm__button-confirm"
-                    style={{ display: 'flex', textDecoration: 'none', textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}
-                >
-                    Далее
-                </NavLink>
-            </div>
         </form>
     );
 };
 export default ExtraInfoCard;
-
-{
-    /* <Box className="cardForm__box">
-                <ChevronDown className="cardForm__chevronIcon" />
-                <select className="cardForm__input">
-                    <option selected disabled>
-                        Выберите из списка
-                    </option>
-                    <option value="1">Получение новой профессии</option>
-                    <option value="2">Углубление имеющихся знаний</option>
-                    <option value="3">Свой вариант</option>
-                </select>
-            </Box> */
-}
-
-{
-    /* <Box className="cardForm__box">
-                <ChevronDown className="cardForm__chevronIcon" />
-                <select className="cardForm__input">
-                    <option selected disabled>
-                        Выберите из списка
-                    </option>
-                    <option value="1">Вести блог</option>
-                    <option value="2">Развивать локальные проф. сообщества</option>
-                    <option value="3">Сниматься / сниматься в видео</option>
-                    <option value="4">Знакомить коллег с Практикумом</option>
-                    <option value="5">Давать консультации</option>
-                    <option value="6">Выступать на мероприятиях</option>
-                </select>
-            </Box> */
-}

@@ -1,6 +1,5 @@
 import { Box, InputLabel } from '@mui/material';
 import './ContactCard.css';
-import { NavLink } from 'react-router-dom';
 
 const ContactCard = () => {
     return (
@@ -79,16 +78,6 @@ const ContactCard = () => {
             <Box className="cardForm__box-contact">
                 <input placeholder="Добавить" className="cardForm__input-contact"></input>
             </Box>
-            <div className="cardForm__buttons contacts">
-                <button className="cardForm__button-cancel">Сбросить</button>
-                <NavLink
-                    to="/newCard__page4"
-                    className="cardForm__button-confirm"
-                    style={{ display: 'flex', textDecoration: 'none', textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}
-                >
-                    Далее
-                </NavLink>
-            </div>
         </form>
     );
 };

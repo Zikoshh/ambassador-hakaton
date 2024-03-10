@@ -1,8 +1,7 @@
 import { Box, InputLabel } from '@mui/material';
-import './AdressCard.css';
-import { NavLink } from 'react-router-dom';
+import './AddressCard.css';
 
-const AdressCard = () => {
+const AddressCard = () => {
     return (
         <Box className="box-container">
             <form className="cardForm">
@@ -66,18 +65,7 @@ const AdressCard = () => {
                     <input placeholder="Добавить" className="cardForm__input"></input>
                 </Box>
             </form>
-
-            <div className="cardForm__buttons adress">
-                <button className="cardForm__button-cancel">Сбросить</button>
-                <NavLink
-                    to="/newCard__page3"
-                    className="cardForm__button-confirm"
-                    style={{ display: 'flex', textDecoration: 'none', textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}
-                >
-                    Далее
-                </NavLink>
-            </div>
         </Box>
     );
 };
-export default AdressCard;
+export default AddressCard;

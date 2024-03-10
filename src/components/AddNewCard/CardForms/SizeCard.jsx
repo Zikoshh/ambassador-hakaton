@@ -1,5 +1,4 @@
 import { Box, InputLabel } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import './SizeCard.css';
 
 const SizeCard = () => {
@@ -34,16 +33,6 @@ const SizeCard = () => {
             <Box className="cardForm__box-size">
                 <input placeholder="Добавить" className="cardForm__input"></input>
             </Box>
-            <div className="cardForm__buttons size">
-                <button className="cardForm__button-cancel">Сбросить</button>
-                <NavLink
-                    to="/newCard__page6"
-                    className="cardForm__button-confirm"
-                    style={{ display: 'flex', textDecoration: 'none', textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}
-                >
-                    Далее
-                </NavLink>
-            </div>
         </form>
     );
 };

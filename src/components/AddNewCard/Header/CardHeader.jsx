@@ -69,7 +69,8 @@ const CardHeader = () => {
                         fontSize: '18px',
                         fontWeight: '500',
                         lineHeight: '26px',
-                        color: 'rgba(33, 33, 33, 1)'
+                        color: 'rgba(33, 33, 33, 1)',
+                        marginButtom: '28px'
                     }}
                 >
                     Сохранить изменение перед выходом?
