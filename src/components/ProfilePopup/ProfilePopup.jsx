@@ -14,7 +14,7 @@ export default function ProfilePopup({ isOpen, isOpenOutPopup, handleProfileOutC
             <div className={profileButtonClassName}>
                 <div className="profile-popup__container">
                     <img src={profileImage} className="profile-popup__image" alt="Button close" />
-                    <p className="profile-popup__account">{currentUser.name}</p>
+                    <p className="profile-popup__account">{currentUser.first_name}</p>
                     <p className="profile-popup__email">{currentUser.email}</p>
                 </div>
                 <div className="profile-popup__buttons">

@@ -32,13 +32,13 @@ export default function ProfilePopupAccount({ isProfilePopupAccount, handleAllPo
                         <img src={avatarIcon} className="account-popup__image" alt="Account avatar" />
                         <img src={avatarIconButton} className="account-popup__image-change" alt="Account avatar" />
                         <div className="account-popup__user-data">
-                            <p className="account-popup__name">{currentUser.name}</p>
+                            <p className="account-popup__name">{currentUser.first_name}</p>
                             <p className="account-popup__email">{currentUser.email}</p>
                         </div>
                     </div>
                     <form action="" className="account-form">
                         <p className="account-form__input-name">ФИО</p>
-                        <input className="account-form__input" type="text" required placeholder="ФИО" value={currentUser.name}></input>
+                        <input className="account-form__input" type="text" required placeholder="ФИО" value={currentUser.first_name}></input>
                         <p className="account-form__input-name">Должность</p>
                         <input className="account-form__input" type="text" required placeholder="Должность" value={currentUser.job}></input>
                         <button className={accountFormButton} onClick={changePasswordPopup}>
