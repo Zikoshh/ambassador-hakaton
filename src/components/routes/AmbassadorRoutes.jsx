@@ -13,35 +13,35 @@ import Tasks from '../Card-Ambassador/MenuAmbassador/Tasks';
 //const AuthLogin = Loadable(lazy(() => import('../Login/Login')));
 
 const AmbassadorRoutes = {
-    path: '/',
+    path: '/card',
     element: <AmbassadorLayout />,
     children: [
         {
-            path: 'mainInfo',
+            path: '/card/mainInfo',
             element: <MainInfo />
         },
         {
-            path: 'adress',
+            path: '/card/address',
             element: <Adress />
         },
         {
-            path: 'contacts',
+            path: '/card/contacts',
             element: <Contacts />
         },
         {
-            path: 'extraInfo',
+            path: '/card/extraInfo',
             element: <ExtraInfo />
         },
         {
-            path: 'size',
+            path: '/card/size',
             element: <Size />
         },
         {
-            path: 'promocodes',
+            path: '/card/promocodes',
             element: <Promocodes />
         },
         {
-            path: 'ambassador_tasks',
+            path: '/card/ambassador_tasks',
             element: <Tasks />
         }
     ]

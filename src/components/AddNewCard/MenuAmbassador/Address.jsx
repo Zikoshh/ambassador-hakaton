@@ -1,10 +1,11 @@
+// import { useState } from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
 import { ChevronLeft } from '@gravity-ui/icons';
-import SizeCard from '../CardForms/SizeCard';
+import AddressCard from '../CardForms/AddressCard';
 import CardHeader from '../Header/CardHeader';
-import './Size.css';
+import './Address.css';
 
-const Size = ({ onNext, onBack }) => {
+const Address = ({ onNext, onBack }) => {
     const handleNext = () => {
         onNext();
     };
@@ -14,6 +15,7 @@ const Size = ({ onNext, onBack }) => {
     };
 
     return (
+        // <Box sx={{ display: showComponent ? 'block' : 'none' }}>
         <div className="modal">
             <div className="modal-content">
                 <Box
@@ -60,12 +62,12 @@ const Size = ({ onNext, onBack }) => {
                                 <IconButton onClick={handleBack}>
                                     <ChevronLeft />
                                 </IconButton>
-                                <p className="mainInfo__text">Размер</p>
+                                <p className="mainInfo__text">Адрес</p>
                             </div>
-                            <p className="mainInfo__steps">Шаг 5/7</p>
+                            <p className="mainInfo__steps">Шаг 2/7</p>
                         </Typography>
-                        <SizeCard />
-                        <div className="cardForm__buttons cardForm__buttons_size">
+                        <AddressCard />
+                        <div className="cardForm__buttons cardForm__buttons_address">
                             <button className="cardForm__button-cancel">Сбросить</button>
                             <button
                                 className="cardForm__button-confirm"
@@ -87,4 +89,4 @@ const Size = ({ onNext, onBack }) => {
         </div>
     );
 };
-export default Size;
+export default Address;
