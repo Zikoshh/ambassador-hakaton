@@ -1,0 +1,188 @@
+.signup__title-container {
+  position: relative;
+  width: 336px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25.5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup__title.signup__title-signup {
+  margin: 0px;
+  align-self: center;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup__button.signup__button-signup {
+  height: 26px;
+  margin-top: 28px;
+  margin-bottom: 0px;
+  text-decoration: none;
+}
+
+.signup__link-back {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+}
+
+
+.password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  width: 100%;
+  height: 860px;
+  background: url(../../../img/cover-image.png);
+}
+
+.password__container {
+  width: 432px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 48px;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 0px 4px 36px 0px rgba(43, 41, 116, 0.12);
+}
+
+.password__title {
+  color: rgb(33, 33, 33);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin: 0px 0px 25.5px 0px;
+}
+
+.password__subtitle {
+  color: rgb(147, 147, 147);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: 0px;
+  text-align: center;
+  margin: 0px 0px 28px 0px;
+}
+
+.password__form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 336px;
+}
+
+.password__error {
+  width: 336px;
+  height: 16px;
+  color: rgb(207, 57, 23);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 130%;
+  text-align: left;
+}
+
+.password__label {
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+.password__label:last-of-type {
+  margin: 0;
+}
+.password__label .password__label-container {
+  position: relative;
+}
+
+.password__input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3px 4px 3px 12px;
+  margin-bottom: 4px;
+  width: 336px;
+  height: 36px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  border-radius: 10px;
+}
+.password__input:focus.neutral {
+  border: 1px solid rgb(98, 93, 245);
+}
+.password__input.valid {
+  border: 1px solid rgb(83, 192, 137);
+}
+.password__input.invalid {
+  border: 1px solid rgb(207, 57, 23);
+}
+
+.password__button {
+  height: 26px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 16px 5px 16px;
+  color: rgb(252, 252, 252);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+  text-decoration: none;
+  background: rgb(98, 93, 245);
+  border-radius: 999px;
+  border: none;
+  margin-top: 28px;
+  cursor: pointer;
+}
+.password__button:hover {
+  background: rgb(52, 45, 242);
+}
+.password__button:active {
+  background: rgb(20, 13, 218);
+}
+
+.password__input-image {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  right: 5px;
+  bottom: 5px;
+}
+.password__input-image.image-shift {
+  right: 30px;
+}
+
+.password__input-image.opened {
+  background: url(../../../img/password-eyes-opened.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.password__input-image.closed {
+  background: url(../../../img/password-eyes-closed.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.password__input-imageCorrect {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  right: 5px;
+  bottom: 5px;
+}

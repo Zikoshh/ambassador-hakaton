@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import './Login_access.css';
+import './Login__no_access.css';
 
-const Login_access = () => {
+const Login__no_access = () => {
   return (
     <section className="password">
       <div className="password__container">
@@ -24,4 +24,4 @@ const Login_access = () => {
   );
 };
 
-export default Login_access;
+export default Login__no_access;

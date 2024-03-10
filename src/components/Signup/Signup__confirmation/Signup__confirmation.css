@@ -1,4 +1,4 @@
-.email__title-container {
+.signup__title-container {
   position: relative;
   width: 336px;
   display: flex;
@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.email__title.email__title-signup {
+.signup__title.signup__title-signup {
   margin: 0px;
   align-self: center;
   justify-self: center;
@@ -30,7 +30,7 @@
   height: 16px;
 }
 
-.email__message {
+.signup__message {
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;

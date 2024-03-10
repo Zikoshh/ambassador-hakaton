@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import './Email_help.css';
+import './Signup__help.css';
 
-const Email_confirmation = () => {
+const Signup__help = () => {
     return (
-        <section className="email email__help">
+        <section className="login email__help">
             <div className="email__help-cover"></div>
             <div className="email__container email__container-help">
                 <Link to="/" className="email__close-button">
@@ -21,4 +21,4 @@ const Email_confirmation = () => {
     );
 };
 
-export default Email_confirmation;
+export default Signup__help;

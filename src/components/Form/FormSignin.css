@@ -1,0 +1,98 @@
+.login__subtitle {
+    color: rgb(147, 147, 147);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0px;
+    text-align: center;
+    margin: 0px 0px 28px 0px;
+}
+
+.login__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login__error {
+    width: 336px;
+    height: 16px;
+    color: rgb(207, 57, 23);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+    text-align: left;
+}
+
+.login__label {
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+    margin-bottom: 16px;
+}
+.login__label:last-of-type {
+    margin: 0;
+}
+.login__label .login__label-container {
+    position: relative;
+}
+
+.login__input {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px 4px 3px 12px;
+    margin-bottom: 4px;
+    width: 336px;
+    height: 36px;
+    color: rgb(33, 33, 33);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 10px;
+}
+.login__input:focus {
+    border: 1px solid rgb(98, 93, 245);
+}
+.login__input:focus.neutral {
+    border: 1px solid rgb(98, 93, 245);
+}
+.login__input.valid {
+    border: 1px solid rgb(83, 192, 137);
+}
+.login__input.invalid {
+    border: 1px solid rgb(207, 57, 23);
+}
+
+.login__input::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.login__span {
+    color: rgb(251, 57, 57);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+}
+
+.login__input-error {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    right: 13px;
+    bottom: 35%;
+}
+
+.login__error {
+    border: 1px solid red;
+}
