@@ -1,0 +1,32 @@
+.email__title-container {
+  position: relative;
+  width: 336px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25.5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.email__title.email__title-signup {
+  margin: 0px;
+  align-self: center;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.email__button.email__button-signup {
+  height: 26px;
+  margin-top: 28px;
+  margin-bottom: 0px;
+  text-decoration: none;
+}
+
+.email__link-back {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+}
