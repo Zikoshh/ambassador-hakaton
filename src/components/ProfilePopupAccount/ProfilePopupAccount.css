@@ -185,16 +185,29 @@
   margin-top: 36px;
 }
 
+.account-form__button_disabled{
+  display: none;
+}
+
 .account-form__button:hover {
   cursor: pointer;
 }
 
 .account-form__buttons {
   display: flex;
+  flex-direction: column;
+}
+
+.account-form__button-change-save{
+  display: flex;
   flex-direction: row;
   margin-top: 36px;
   justify-content: space-between;
   margin-bottom: 40px;
+}
+
+.account-form__button-change-save_disabled{
+  display: none;
 }
 
 .account-form__button-reset {

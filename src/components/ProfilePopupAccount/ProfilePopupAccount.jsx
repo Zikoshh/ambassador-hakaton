@@ -11,6 +11,7 @@ export default function ProfilePopupAccount({ isProfilePopupAccount, handleAllPo
         setIsChangePasswordButton(true);
     }
     const changePasswordClassName = `account-form__change-password ${isChangePasswordButton && 'account-form__change-password_active'}`;
+    const accountFormButton = `account-form__button ${isChangePasswordButton && 'account-form__button_disabled'}`;
     return (
         <div className={profileAccountClassName}>
             <div className="account-popup__header">
@@ -31,17 +32,19 @@ export default function ProfilePopupAccount({ isProfilePopupAccount, handleAllPo
                     <input className="account-form__input" type="text" required placeholder="ФИО" value="Белова Анна"></input>
                     <p className="account-form__input-name">Должность</p>
                     <input className="account-form__input" type="text" required placeholder="Должность" value="Менеджер"></input>
-                    <button className="account-form__button" onClick={changePasswordPopup}>
+                    <button className={accountFormButton} onClick={changePasswordPopup}>
                         Сменить пароль
                     </button>
                     <div className="account-form__buttons">
-                        <button className="account-form__button-reset">Сменить пароль</button>
-                        <button className="account-form__button-save">Сохранить</button>
                         <div className={changePasswordClassName}>
                             <p className="account-form__input-name">Введите пароль</p>
                             <input className="account-form__input" type="password" placeholder="Введите пароль"></input>
                             <p className="account-form__input-name">Повторите пароль</p>
                             <input className="account-form__input" type="password" placeholder="Введите пароль"></input>
+                        </div>
+                        <div className='account-form__button-change-save'>
+                            <button className="account-form__button-reset">Сбросить</button>
+                            <button className="account-form__button-save">Сохранить</button>
                         </div>
                     </div>
                 </form>
