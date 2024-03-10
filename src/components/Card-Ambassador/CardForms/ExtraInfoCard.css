@@ -1,0 +1,61 @@
+.cardForm__box-aboutMe {
+    height: 80px;
+    width: 336px;
+}
+
+.cardForm__input-aboutMe {
+    width: 336px;
+    height: 80px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 7px 10px;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    border: 1px solid rgba(99, 98, 98, 0.3);
+    outline: none;
+    border-radius: 10px;
+    background: transparent;
+    appearance: none;
+    overflow: hidden;
+    padding: 8px 0px 0px 12px;
+}
+
+.cardForm__input-aboutMe::placeholder {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.3);
+    height: 80px;
+}
+
+.cardForm__buttons.extraInfo {
+    margin-top: 121px;
+}
+
+.cardForm__box {
+    position: relative;
+    background: transparent;
+    margin-bottom: 16px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    appearance: none;
+    border-radius: 8px;
+}
+.cardForm__box::placeholder {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: rgba(171, 171, 171, 1);
+}
