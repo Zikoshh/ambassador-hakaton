@@ -85,6 +85,11 @@ const Profiles = () => {
         setCurrentStep(1);
     };
 
+    const closeAllModals = () => {
+        setFirstModalOpen(false);
+        setSecondModalOpen(false);
+    };
+
     const openSecondModal = () => {
         setSecondModalOpen(true);
     };
@@ -195,12 +200,12 @@ const Profiles = () => {
             </Box>
             {firstModalOpen && (
                 <>
-                    {currentStep === 1 && <MainInfo onNext={nextStep} onBack={previousStep} />}
-                    {currentStep === 2 && <Address onNext={nextStep} onBack={previousStep} />}
-                    {currentStep === 3 && <Contacts onNext={nextStep} onBack={previousStep} />}
-                    {currentStep === 4 && <ExtraInfo onNext={nextStep} onBack={previousStep} />}
-                    {currentStep === 5 && <Size onNext={nextStep} onBack={previousStep} />}
-                    {currentStep === 6 && <Promocodes onNext={nextStep} onBack={previousStep} />}
+                    {currentStep === 1 && <MainInfo onNext={nextStep} onBack={previousStep} onClose={closeAllModals} />}
+                    {currentStep === 2 && <Address onNext={nextStep} onBack={previousStep} onClose={closeFirstModal} />}
+                    {currentStep === 3 && <Contacts onNext={nextStep} onBack={previousStep} onClose={closeFirstModal} />}
+                    {currentStep === 4 && <ExtraInfo onNext={nextStep} onBack={previousStep} onClose={closeFirstModal} />}
+                    {currentStep === 5 && <Size onNext={nextStep} onBack={previousStep} onClose={closeFirstModal} />}
+                    {currentStep === 6 && <Promocodes onNext={nextStep} onBack={previousStep} onClose={closeFirstModal} />}
                     {currentStep === 7 && <Tasks onClose={closeFirstModal} onBack={previousStep} />}
                 </>
             )}
@@ -403,17 +408,7 @@ const Profiles = () => {
                                             </SelectForTable>
                                         </FormControl>
                                     </TableCell>
-                                    {secondModalOpen && (
-                                        <>
-                                            {currentStep === 1 && <AmbassadorLayout onNext={nextStep} />}
-                                            {currentStep === 2 && <Address onNext={nextStep} />}
-                                            {currentStep === 3 && <Contacts onNext={nextStep} />}
-                                            {currentStep === 4 && <ExtraInfo onNext={nextStep} />}
-                                            {currentStep === 5 && <Size onNext={nextStep} />}
-                                            {currentStep === 6 && <Promocodes onNext={nextStep} />}
-                                            {currentStep === 7 && <Tasks onClose={closeSecondModal} />}
-                                        </>
-                                    )}
+                                    {secondModalOpen && <AmbassadorLayout onClose={closeSecondModal} />}
                                 </TableRow>
                             );
                         })}

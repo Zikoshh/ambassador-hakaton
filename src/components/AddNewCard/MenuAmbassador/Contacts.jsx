@@ -4,7 +4,7 @@ import ContactCard from '../CardForms/ContactCard';
 import CardHeader from '../Header/CardHeader';
 import './Contacts.css';
 
-const Contacts = ({ onNext, onBack }) => {
+const Contacts = ({ onNext, onBack, onClose }) => {
     const handleNext = () => {
         onNext();
     };
@@ -27,7 +27,7 @@ const Contacts = ({ onNext, onBack }) => {
                         border: '1px solid rgb(195, 195, 201)'
                     }}
                 >
-                    <CardHeader />
+                    <CardHeader handleCloseModal={onClose} />
                     <Box
                         sx={{
                             fontFamily: ('Inter', 'Arial', 'sans-serif'),

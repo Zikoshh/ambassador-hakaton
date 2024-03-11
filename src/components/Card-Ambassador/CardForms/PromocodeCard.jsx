@@ -211,7 +211,7 @@ const PromocodeCard = () => {
                     </Button>
                 </Item>
             </Stack>
-            <div className="cardForm__buttons promo">
+            <div className="cardForm__buttons cardForm__buttons_promo">
                 <button className="cardForm__button-cancel">Сбросить</button>
                 <button className="cardForm__button-confirm" onClick={handleSave}>
                     Сохранить

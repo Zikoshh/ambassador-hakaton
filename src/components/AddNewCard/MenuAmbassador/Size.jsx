@@ -4,7 +4,7 @@ import SizeCard from '../CardForms/SizeCard';
 import CardHeader from '../Header/CardHeader';
 import './Size.css';
 
-const Size = ({ onNext, onBack }) => {
+const Size = ({ onNext, onBack, onClose }) => {
     const handleNext = () => {
         onNext();
     };
@@ -27,7 +27,7 @@ const Size = ({ onNext, onBack }) => {
                         border: '1px solid rgb(195, 195, 201)'
                     }}
                 >
-                    <CardHeader />
+                    <CardHeader handleCloseModal={onClose} />
                     <Box
                         sx={{
                             fontFamily: ('Inter', 'Arial', 'sans-serif'),

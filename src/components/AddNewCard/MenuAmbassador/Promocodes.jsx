@@ -5,7 +5,7 @@ import CardHeader from '../Header/CardHeader';
 import { Plus } from '@gravity-ui/icons';
 import './Promocodes.css';
 
-const Promocodes = ({ onNext, onBack }) => {
+const Promocodes = ({ onNext, onBack, onClose }) => {
     const handleNext = () => {
         onNext();
     };
@@ -88,7 +88,7 @@ const Promocodes = ({ onNext, onBack }) => {
                         border: '1px solid rgb(195, 195, 201)'
                     }}
                 >
-                    <CardHeader />
+                    <CardHeader handleCloseModal={onClose} />
                     <Box
                         sx={{
                             position: 'relative',
