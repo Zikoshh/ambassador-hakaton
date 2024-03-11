@@ -24,7 +24,7 @@ CRM Hakaton
 
 ## Разработчики
 * [Станислав Угланов](https://github.com/levinnsk)
-* [Евгений Зырянов](https://github.com/EvgenyZaryanov)
+* [Евгений Зарянов](https://github.com/EvgenyZaryanov)
 * [Дмитрий Данильченко](https://github.com/DimaDanilchenko)
 
 ## Доработки в следующем релизе
