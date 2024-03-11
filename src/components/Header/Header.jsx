@@ -5,6 +5,7 @@ import headerButtonRight from '../../assets/header-button-right.svg';
 import ProfilePopup from '../ProfilePopup/ProfilePopup';
 import { useState } from 'react';
 
+
 function Header() {
     const [isProfilePopupOpen, setIsProfilePopupOpen] = useState(false);
     const [isProfilePopupOut, setIsProfilePopupOut] = useState(false);
@@ -23,6 +24,7 @@ function Header() {
     function handleAllPopupClose(){
       setIsProfilePopupOpen(false);
       setIsProfilePopupOut(false);
+      setIsProfilePopupAccount(false);
     }
     function handleProfileAccountClick(){
         setIsProfilePopupOpen(false);

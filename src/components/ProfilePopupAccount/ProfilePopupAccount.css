@@ -5,11 +5,13 @@
   padding: 0px;
   position: absolute;
   width: 416px;
-  height: 540px;
   filter: drop-shadow(0px 4px 36px rgba(43, 41, 116, 0.12));
   border-radius: 20px;
-  border: 1px solid red;
   z-index: 2;
+  background-color: white;
+  position: absolute;
+  top: 20%;
+  left: calc(50% - 450px/2 - 0.5px);
 }
 
 .account-popup_open {
@@ -31,7 +33,8 @@
   margin: 0;
   width: 147px;
   height: 26px;
-  left: 40px;
+  margin-left: 40px;
+  margin-top: 21px;
   top: calc(50% - 26px/2);
   font-family: 'Inter';
   font-style: normal;
@@ -41,4 +44,250 @@
   display: flex;
   align-items: center;
   color: #212121;
+}
+
+.account-popup__header-image {
+  width: 30px;
+  height: 30px;
+  margin-top: 24px;
+  margin-right: 36px;
+}
+
+.account-popup__header-image:hover {
+  cursor: pointer;
+}
+
+.account-popup__user {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 256px;
+  height: 80px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.account-popup__image-change {
+  position: absolute;
+  top: 0;
+  left: 50px;
+}
+
+.account-popup__image-change:hover {
+  cursor: pointer;
+}
+
+.account-popup__user-data {
+  margin-left: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.account-popup__name {
+  margin: 0;
+  width: 100px;
+  height: 24px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #212121;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.account-popup__email {
+  margin: 0;
+  width: 154px;
+  height: 22px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ABABAB;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.account-form {
+  margin: 0 auto;
+  width: calc(100% - 40*2px);
+  margin-top: 36px;
+}
+
+.account-form__input-name {
+  margin: 0;
+  height: 22px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  color: #212121;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.account-form__input {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 12px;
+  gap: 8px;
+  width: 336px;
+  height: 36px;
+  background: #FFFFFF;
+  border: 1px solid #C3C3C9;
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #212121;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin-bottom: 16px;
+}
+
+.account-form__button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 16px;
+  gap: 6px;
+  isolation: isolate;
+  width: 336px;
+  height: 36px;
+  background: #F7F7F8;
+  border: 1px solid #C3C3C9;
+  border-radius: 999px;
+  margin-top: 36px;
+}
+
+.account-form__button_disabled {
+  display: none;
+}
+
+.account-form__button:hover {
+  cursor: pointer;
+}
+
+.account-form__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-form__button-change-save {
+  display: flex;
+  flex-direction: row;
+  margin-top: 36px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.account-form__button-change-save_disabled {
+  display: none;
+}
+
+.account-form__button-reset {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 16px;
+  gap: 6px;
+  isolation: isolate;
+  width: 160px;
+  height: 36px;
+  background: #FFFFFF;
+  border: 1px solid #C3C3C9;
+  border-radius: 999px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #212121;
+}
+
+.account-form__button-reset:hover,
+.account-form__button-save:hover {
+  cursor: pointer;
+}
+
+.account-form__button-save {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 16px;
+  gap: 6px;
+  isolation: isolate;
+  width: 160px;
+  height: 36px;
+  background: #625DF5;
+  border: none;
+  border-radius: 999px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #FCFCFC;
+}
+
+.account-form__change-password {
+  display: none;
+  flex-direction: column;
+}
+
+.account-form__change-password_active {
+  display: flex;
+}
+
+.account-change-save__text {
+  display: none;
+  position: absolute;
+  left: 25%;
+  border: 1px solid red;
+  margin: 0 auto;
+  margin-top: 20px;
+  justify-content: center;
+  width: 216px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 13px 16px;
+  gap: 8px;
+  height: 48px;
+  background: #D1F9EE;
+  border: 1px solid #D1F9EE;
+  border-radius: 20px;
+}
+
+.account-change-save__text_active{
+  display: flex;
 }
