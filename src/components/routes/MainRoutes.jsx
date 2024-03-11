@@ -27,7 +27,7 @@ const MainRoutes = {
             element: <Profiles />,
             children: [
                 {
-                    path: '/profiles/card',
+                    path: '/profiles/',
                     element: <AmbassadorLayout />,
                     children: [
                         {

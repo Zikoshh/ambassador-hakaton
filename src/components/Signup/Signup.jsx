@@ -87,7 +87,6 @@ const Signup = () => {
                     .catch(() => {
                         setErrorApi('Что-то пошло не так');
                     });
-                //alert('Данные отправлены!');
             }
         }
     };
@@ -157,7 +156,7 @@ const Signup = () => {
                     {isStep == 0 ? (
                         <>
                             <label className="login__label">
-                                Email
+                                Логин
                                 <div className="login__label-container">
                                     <input
                                         className={`login__input ${!emailValid ? 'login__error' : ''}`}

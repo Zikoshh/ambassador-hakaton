@@ -101,7 +101,7 @@ const Login = () => {
                 <form className="login__form" onSubmit={handleContinue}>
                     {isStep == 0 ? (
                         <label className="login__label">
-                            Email
+                            Логин
                             <div className="login__label-container">
                                 <input
                                     className={`login__input ${!emailValid ? 'login__error' : ''}`}
