@@ -1,10 +1,10 @@
 import { Box, Typography, IconButton } from '@mui/material';
 import { ChevronLeft } from '@gravity-ui/icons';
-import ExtraInfoCard from '../CardForms/ExtraInfoCard.jsx';
-import CardHeader from '../Header/CardHeader.jsx';
-import './ExtraInfo.css';
+import ContactCard from '../CardForms/ContactCard';
+import CardHeader from '../Header/CardHeader';
+import './Contacts.css';
 
-const ExtraInfo = ({ onNext, onBack, onClose }) => {
+const Contacts = ({ onNext, onBack, onClose }) => {
     const handleNext = () => {
         onNext();
     };
@@ -60,12 +60,12 @@ const ExtraInfo = ({ onNext, onBack, onClose }) => {
                                 <IconButton onClick={handleBack}>
                                     <ChevronLeft />
                                 </IconButton>
-                                <p className="mainInfo__text">Доп. информация</p>
+                                <p className="mainInfo__text">Контакты</p>
                             </div>
-                            <p className="mainInfo__steps">Шаг 4/7</p>
+                            <p className="mainInfo__steps">Шаг 3/7</p>
                         </Typography>
-                        <ExtraInfoCard />
-                        <div className="cardForm__buttons cardForm__buttons_extraInfo">
+                        <ContactCard />
+                        <div className="cardForm__buttons cardForm__buttons_contacts">
                             <button className="cardForm__button-cancel">Сбросить</button>
                             <button
                                 className="cardForm__button-confirm"
@@ -87,4 +87,5 @@ const ExtraInfo = ({ onNext, onBack, onClose }) => {
         </div>
     );
 };
-export default ExtraInfo;
+
+export default Contacts;

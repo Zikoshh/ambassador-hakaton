@@ -39,7 +39,7 @@ const Tasks = () => {
                         margin: '0'
                     }}
                 >
-                    <p className="promocodes">Промокоды</p>
+                    <p className="promocodes">Задачи</p>
                 </Typography>
                 <Button
                     className="promo-addButton"

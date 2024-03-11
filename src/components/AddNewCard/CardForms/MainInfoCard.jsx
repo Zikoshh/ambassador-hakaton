@@ -1,11 +1,8 @@
-// import { useState } from 'react';
 import Select from 'react-select';
 import { Box, InputLabel } from '@mui/material';
-import './CardForm.css';
-import { NavLink } from 'react-router-dom';
-// import { ChevronDown } from '@gravity-ui/icons';
+import './MainInfoCard.css';
 
-const CardForm = () => {
+const MainInfoCard = () => {
     const options1 = [
         { value: 'Не амбассадор', label: 'Не амбассадор' },
         { value: 'Онбординг', label: 'Онбординг' },
@@ -112,17 +109,7 @@ const CardForm = () => {
                     <label className="checkbox-name">Амбассадор выполнил задания из Гайда</label>
                 </Box>
             </form>
-            <div className="cardForm__buttons">
-                <button className="cardForm__button-cancel">Сбросить</button>
-                <NavLink
-                    to="/newCard__page2"
-                    className="cardForm__button-confirm"
-                    style={{ display: 'flex', textDecoration: 'none', textAlign: 'center', alignItems: 'center', justifyContent: 'center' }}
-                >
-                    Далее
-                </NavLink>
-            </div>
         </Box>
     );
 };
-export default CardForm;
+export default MainInfoCard;

@@ -1,10 +1,11 @@
+// import { useState } from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
 import { ChevronLeft } from '@gravity-ui/icons';
-import ExtraInfoCard from '../CardForms/ExtraInfoCard.jsx';
-import CardHeader from '../Header/CardHeader.jsx';
-import './ExtraInfo.css';
+import AddressCard from '../CardForms/AddressCard';
+import CardHeader from '../Header/CardHeader';
+import './Address.css';
 
-const ExtraInfo = ({ onNext, onBack, onClose }) => {
+const Address = ({ onNext, onBack, onClose }) => {
     const handleNext = () => {
         onNext();
     };
@@ -14,6 +15,7 @@ const ExtraInfo = ({ onNext, onBack, onClose }) => {
     };
 
     return (
+        // <Box sx={{ display: showComponent ? 'block' : 'none' }}>
         <div className="modal">
             <div className="modal-content">
                 <Box
@@ -60,12 +62,12 @@ const ExtraInfo = ({ onNext, onBack, onClose }) => {
                                 <IconButton onClick={handleBack}>
                                     <ChevronLeft />
                                 </IconButton>
-                                <p className="mainInfo__text">Доп. информация</p>
+                                <p className="mainInfo__text">Адрес</p>
                             </div>
-                            <p className="mainInfo__steps">Шаг 4/7</p>
+                            <p className="mainInfo__steps">Шаг 2/7</p>
                         </Typography>
-                        <ExtraInfoCard />
-                        <div className="cardForm__buttons cardForm__buttons_extraInfo">
+                        <AddressCard />
+                        <div className="cardForm__buttons cardForm__buttons_address">
                             <button className="cardForm__button-cancel">Сбросить</button>
                             <button
                                 className="cardForm__button-confirm"
@@ -87,4 +89,4 @@ const ExtraInfo = ({ onNext, onBack, onClose }) => {
         </div>
     );
 };
-export default ExtraInfo;
+export default Address;

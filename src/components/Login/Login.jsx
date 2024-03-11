@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { userApi } from '../../utils/api/UserApi';
 import './Login.css';
 import imgErrorEmailPath from '../../img/icon-errorRed.svg';
 import dividingline from '../../img/devider.svg';
 import imgBackPath from '../../img/back-button.svg';
+import { AppContext } from '../../contexts/AppContext';
 
 const Login = () => {
+    const { setIsLoggedIn } = useContext(AppContext);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isStep, setStep] = useState(0);
@@ -28,7 +31,7 @@ const Login = () => {
 
     const handleDownStep = () => {
         setStep(isStep - 1);
-    }
+    };
     const handleContinue = (evt) => {
         evt.preventDefault();
         console.log('сабмит');
@@ -57,7 +60,10 @@ const Login = () => {
                     password,
                     email
                 })
-                .then(() => {
+                .then((data) => {
+                    localStorage.setItem('access', data.access);
+                    localStorage.setItem('refresh', data.refresh);
+                    setIsLoggedIn(true);
                     navigate('/');
                 })
                 .catch((err) => {
@@ -80,7 +86,7 @@ const Login = () => {
 
     return (
         <section className="login">
-            <div className={isStep == 0 ? "login__container" : "password__container"}>
+            <div className={isStep == 0 ? 'login__container' : 'password__container'}>
                 {isStep == 0 ? (
                     <h1 className="login__title">Войти в CRM</h1>
                 ) : (

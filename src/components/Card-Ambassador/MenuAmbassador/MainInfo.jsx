@@ -29,7 +29,7 @@ const MainInfo = () => {
                 backgroundColor: '#ffff',
                 border: 'none',
                 outline: 'none',
-                borderRadius: '8px'
+                borderBottomRadius: '8px'
             }}
         >
             <Typography

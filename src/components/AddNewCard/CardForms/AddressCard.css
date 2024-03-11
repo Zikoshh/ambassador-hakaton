@@ -1,4 +1,4 @@
-/* .cardForm__input-index {
+.cardForm__input-index {
     width: 90px;
     height: 36px;
     font-family: Inter;
@@ -24,11 +24,11 @@
     line-height: 22px;
     text-align: left;
     color: rgba(0, 0, 0, 0.3);
-} */
+}
 
-/* .index {
+.index {
     width: 90px;
-} */
+}
 
 .cardForm__buttons.adress {
     margin: 239px 0px 0px;
