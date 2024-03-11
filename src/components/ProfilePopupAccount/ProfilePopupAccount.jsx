@@ -6,7 +6,7 @@ import avatarIcon from '../../img/Persona.png';
 import avatarIconButton from '../../img/avatar-icon-button.svg';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 export default function ProfilePopupAccount({ isProfilePopupAccount, handleAllPopupClose }) {
-    const currentUser = React.useContext(CurrentUserContext);
+    const { isCurrentUser } = React.useContext(CurrentUserContext);
     const profileAccountClassName = `account-popup ${isProfilePopupAccount && 'account-popup_open'}`;
     const [isChangePasswordButton, setIsChangePasswordButton] = useState(false);
     function changePasswordPopup(e) {
@@ -32,15 +32,15 @@ export default function ProfilePopupAccount({ isProfilePopupAccount, handleAllPo
                         <img src={avatarIcon} className="account-popup__image" alt="Account avatar" />
                         <img src={avatarIconButton} className="account-popup__image-change" alt="Account avatar" />
                         <div className="account-popup__user-data">
-                            <p className="account-popup__name">{currentUser.first_name}</p>
-                            <p className="account-popup__email">{currentUser.email}</p>
+                            <p className="account-popup__name">{isCurrentUser.first_name}</p>
+                            <p className="account-popup__email">{isCurrentUser.email}</p>
                         </div>
                     </div>
                     <form action="" className="account-form">
                         <p className="account-form__input-name">ФИО</p>
-                        <input className="account-form__input" type="text" required placeholder="ФИО" value={currentUser.first_name}></input>
+                        <input className="account-form__input" type="text" required placeholder="ФИО" value={isCurrentUser.first_name}></input>
                         <p className="account-form__input-name">Должность</p>
-                        <input className="account-form__input" type="text" required placeholder="Должность" value={currentUser.job}></input>
+                        <input className="account-form__input" type="text" required placeholder="Должность" value={isCurrentUser.job}></input>
                         <button className={accountFormButton} onClick={changePasswordPopup}>
                             Сменить пароль
                         </button>

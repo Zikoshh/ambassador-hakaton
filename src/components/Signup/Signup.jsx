@@ -149,7 +149,6 @@ const Signup = () => {
                             <h1 className="password__title">Регистрация в CRM</h1>
                         </div>
                         <h2 className="password__subtitle">Пароль должен содержать минимум 8 символов</h2>
-
                     </>
                 )}
                 <form className="login__form" onSubmit={handleSubmit}>
